@@ -17,10 +17,7 @@
     "firebase": "^10.8.0",
     "jose": "^5.2.3",
     "lucide-react": "^0.344.0",
-<<<<<<< HEAD
-=======
     "openai": "^4.76.3",
->>>>>>> b597b98 (Update project files and sync with GitHub)
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
@@ -31,10 +28,7 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
-<<<<<<< HEAD
-=======
     "@takeshape/netlify-plugin-takeshape": "^1.0.0",
->>>>>>> b597b98 (Update project files and sync with GitHub)
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
@@ -47,8 +41,4 @@
     "typescript": "^5.4.2",
     "vite": "^5.1.5"
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> b597b98 (Update project files and sync with GitHub)
