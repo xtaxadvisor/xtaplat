@@ -7,6 +7,10 @@ import { LoadingSpinner } from '../components/ui/LoadingSpinner';
 const AdminPortal = React.lazy(() => import('../pages/admin/AdminPortal'));
 const InvestorPortal = React.lazy(() => import('../pages/investor/InvestorPortal'));
 const StudentPortal = React.lazy(() => import('../pages/student/StudentPortal'));
+<<<<<<< HEAD
+=======
+const ProfessionalPortal = React.lazy(() => import('../pages/ProfessionalPortal'));
+>>>>>>> b597b98 (Update project files and sync with GitHub)
 
 export function PortalRoutes() {
   return (
@@ -44,6 +48,20 @@ export function PortalRoutes() {
         }
       />
 
+<<<<<<< HEAD
+=======
+      <Route
+        path="/professional/*"
+        element={
+          <React.Suspense fallback={<LoadingSpinner />}>
+            <ProtectedRoute requiredRole={['professional']}>
+              <ProfessionalPortal />
+            </ProtectedRoute>
+          </React.Suspense>
+        }
+      />
+
+>>>>>>> b597b98 (Update project files and sync with GitHub)
       {/* Fallback for invalid portal routes */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

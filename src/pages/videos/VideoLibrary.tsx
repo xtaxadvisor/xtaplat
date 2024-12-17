@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import { Search, Filter, Play, Clock, DollarSign, Tag } from 'lucide-react';
 import { Button } from '../../components/ui/Button';
 import { Input } from '../../components/ui/Input';
@@ -16,10 +17,16 @@ interface VideoClass {
   tags: string[];
   instructor: string;
 }
+=======
+import { VideoCard } from '../../components/video/VideoCard';
+import { VideoFilters } from '../../components/video/VideoFilters';
+import { videoClasses } from '../../data/videoData';
+>>>>>>> b597b98 (Update project files and sync with GitHub)
 
 export default function VideoLibrary() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+<<<<<<< HEAD
   const { addNotification } = useNotificationStore();
 
   const sampleVideos: VideoClass[] = [
@@ -59,6 +66,10 @@ export default function VideoLibrary() {
   ];
 
   const filteredVideos = sampleVideos.filter(video => {
+=======
+
+  const filteredVideos = videoClasses.filter(video => {
+>>>>>>> b597b98 (Update project files and sync with GitHub)
     const matchesSearch = 
       video.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       video.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -69,15 +80,19 @@ export default function VideoLibrary() {
     return matchesSearch && matchesCategory;
   });
 
+<<<<<<< HEAD
   const handlePurchase = (videoId: string) => {
     addNotification('Video purchase feature coming soon!', 'info');
   };
 
+=======
+>>>>>>> b597b98 (Update project files and sync with GitHub)
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Video Library</h1>
+<<<<<<< HEAD
           <div className="flex items-center space-x-4">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -154,6 +169,20 @@ export default function VideoLibrary() {
                 </Button>
               </div>
             </div>
+=======
+        </div>
+
+        <VideoFilters
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredVideos.map((video) => (
+            <VideoCard key={video.id} video={video} />
+>>>>>>> b597b98 (Update project files and sync with GitHub)
           ))}
         </div>
       </div>

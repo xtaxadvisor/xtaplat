@@ -4,4 +4,8 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ]
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> b597b98 (Update project files and sync with GitHub)

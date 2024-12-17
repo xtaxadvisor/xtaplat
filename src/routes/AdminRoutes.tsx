@@ -5,6 +5,10 @@ import { AdminDashboard } from '../components/admin/AdminDashboard';
 import { AdminLayout } from '../components/admin/AdminLayout';
 import { AdminLoginForm } from '../components/admin/auth/AdminLoginForm';
 import { TeamManagement } from '../components/admin/team/TeamManagement';
+<<<<<<< HEAD
+=======
+import AIMonitoringDashboard from '../pages/admin/AIMonitoringDashboard';
+>>>>>>> b597b98 (Update project files and sync with GitHub)
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 
 export function AdminRoutes() {
@@ -21,6 +25,10 @@ export function AdminRoutes() {
               <Routes>
                 <Route path="/" element={<AdminDashboard />} />
                 <Route path="/team" element={<TeamManagement />} />
+<<<<<<< HEAD
+=======
+                <Route path="/ai-monitor" element={<AIMonitoringDashboard />} />
+>>>>>>> b597b98 (Update project files and sync with GitHub)
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </AdminLayout>

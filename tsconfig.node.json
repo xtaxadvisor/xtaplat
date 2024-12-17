@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+<<<<<<< HEAD
     "target": "ES2024",
     "lib": ["ES2024"],
     "module": "ESNext",
@@ -29,6 +30,14 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
+=======
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "outDir": "dist"
+>>>>>>> b597b98 (Update project files and sync with GitHub)
   },
   "include": ["vite.config.ts"]
 }

@@ -17,6 +17,7 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
+<<<<<<< HEAD
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@pages/*": ["src/pages/*"],
@@ -25,6 +26,9 @@
       "@hooks/*": ["src/hooks/*"],
       "@contexts/*": ["src/contexts/*"],
       "@types/*": ["src/types/*"]
+=======
+      "@/*": ["./src/*"]
+>>>>>>> b597b98 (Update project files and sync with GitHub)
     }
   },
   "include": ["src"],

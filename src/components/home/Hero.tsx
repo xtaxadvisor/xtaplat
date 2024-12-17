@@ -3,6 +3,10 @@ import { Video } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+<<<<<<< HEAD
+=======
+import { AIAssistantWidget } from '../ai/AIAssistantWidget';
+>>>>>>> b597b98 (Update project files and sync with GitHub)
 
 export function Hero() {
   const navigate = useNavigate();
@@ -58,6 +62,11 @@ export function Hero() {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+=======
+
+      <AIAssistantWidget />
+>>>>>>> b597b98 (Update project files and sync with GitHub)
     </div>
   );
 }

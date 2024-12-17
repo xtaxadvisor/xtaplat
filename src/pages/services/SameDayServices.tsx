@@ -86,6 +86,126 @@ export default function SameDayServices() {
         'Verification Support',
         'Digital Copy'
       ]
+<<<<<<< HEAD
+=======
+    },
+    {
+      title: 'Business License Applications',
+      description: 'Professional assistance with business license applications at local and state levels.',
+      price: '$199',
+      duration: '24 hours',
+      icon: ClipboardList,
+      features: [
+        'Application Preparation',
+        'Document Review',
+        'Filing Assistance',
+        'Status Tracking'
+      ]
+    },
+    {
+      title: 'Annual Report Filings',
+      description: 'Timely preparation and filing of mandatory annual reports.',
+      price: '$149',
+      duration: '2-3 hours',
+      icon: FileCheck,
+      features: [
+        'Document Preparation',
+        'Compliance Review',
+        'State Filing',
+        'Digital Copies'
+      ]
+    },
+    {
+      title: 'Document Preparation for Loans',
+      description: 'Comprehensive preparation of documents for loan applications and investor presentations.',
+      price: '$399',
+      duration: '4-6 hours',
+      icon: FileText,
+      features: [
+        'Financial Statements',
+        'Business Plans',
+        'Cash Flow Projections',
+        'Supporting Documents'
+      ]
+    },
+    {
+      title: 'Contract Drafting & Review',
+      description: 'Professional contract creation and review services.',
+      price: '$299',
+      duration: '3-4 hours',
+      icon: FileText,
+      features: [
+        'Custom Contracts',
+        'Legal Review',
+        'Revision Support',
+        'Digital Copies'
+      ]
+    },
+    {
+      title: 'Business Plan Development',
+      description: 'Comprehensive business plan creation with market analysis and financials.',
+      price: '$599',
+      duration: '24 hours',
+      icon: Briefcase,
+      features: [
+        'Market Analysis',
+        'Financial Projections',
+        'Strategy Development',
+        'Implementation Plan'
+      ]
+    },
+    {
+      title: 'Financial Statement Preparation',
+      description: 'Professional preparation of essential financial statements.',
+      price: '$349',
+      duration: '4-6 hours',
+      icon: BarChart,
+      features: [
+        'Balance Sheet',
+        'Income Statement',
+        'Cash Flow Statement',
+        'Financial Analysis'
+      ]
+    },
+    {
+      title: 'Payroll Setup & Processing',
+      description: 'Complete payroll system setup and processing services.',
+      price: '$249',
+      duration: '2-3 hours',
+      icon: Users,
+      features: [
+        'System Setup',
+        'Tax Calculations',
+        'Direct Deposits',
+        'Compliance Review'
+      ]
+    },
+    {
+      title: 'QuickBooks Setup & Training',
+      description: 'Professional QuickBooks setup and personalized training.',
+      price: '$299',
+      duration: '3-4 hours',
+      icon: BookIcon,
+      features: [
+        'Software Setup',
+        'Custom Training',
+        'Chart of Accounts',
+        'Basic Operations'
+      ]
+    },
+    {
+      title: 'Tax Consultation & Preparation',
+      description: 'Expert tax strategy consultation and return preparation.',
+      price: '$399',
+      duration: '2-3 hours',
+      icon: Calculator,
+      features: [
+        'Tax Planning',
+        'Return Preparation',
+        'Deduction Analysis',
+        'Compliance Review'
+      ]
+>>>>>>> b597b98 (Update project files and sync with GitHub)
     }
   ];
 
