@@ -14,9 +14,6 @@
   targetPort = 8888
   publish = "dist"
   autoLaunch = true
-<<<<<<< HEAD
-  framework = "#custom"
-=======
   framework = "#custom"
 
 # Add the plugin configuration for Takeshape
@@ -32,4 +29,3 @@ package = "@takeshape/netlify-plugin-takeshape"
     }
   }
   """
->>>>>>> b597b98 (Update project files and sync with GitHub)
