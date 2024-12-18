@@ -17,6 +17,7 @@ interface FormProps {
   className?: string;
 }
 
+
 export function Form({ fields, onSubmit, submitText = 'Submit', className = '' }: FormProps) {
   const [formData, setFormData] = React.useState<Record<string, string>>({});
   const [errors, setErrors] = React.useState<Record<string, string>>({});
@@ -50,7 +51,7 @@ export function Form({ fields, onSubmit, submitText = 'Submit', className = '' }
   };
 
   return (
-    <form onSubmit={handleSubmit} className={`space-y-4 ${className}`}>
+    <form onSubmit={handleSubmit} className={className}>
       {fields.map(field => (
         <Input
           key={field.name}
