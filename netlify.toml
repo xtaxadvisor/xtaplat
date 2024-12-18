@@ -1,18 +1,16 @@
 [build]
-  command = "npm run build"
-  publish = "dist"
-  functions = "netlify/functions"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+command = "npm run build"
+publish = "dist"
+functions = "netlify/functions"
 
 [dev]
-  command = "npm run dev"
-  port = 3000
-  targetPort = 8888
-  publish = "dist"
-  autoLaunch = true
-  framework = "#custom"
-"
+command = "npm run dev"
+port = 3000
+targetPort = 8888
+publish = "dist"
+framework = "#custom"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
