@@ -15,17 +15,4 @@
   publish = "dist"
   autoLaunch = true
   framework = "#custom"
-
-# Add the plugin configuration for Takeshape
-[[plugins]]
-package = "@takeshape/netlify-plugin-takeshape"
-
-[plugins.inputs]
-  query = """
-  query {
-    projects: getProjectList {
-      id
-      name
-    }
-  }
-  """
+"
