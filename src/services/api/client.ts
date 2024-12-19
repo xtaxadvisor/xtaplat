@@ -1,7 +1,7 @@
-<<<<<<< HEAD
-import { api } from '../api';
-import type { Client } from '../../types';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import localforage from 'localforage';
 
+// DTOs for creating and updating clients
 export interface CreateClientDTO {
   name: string;
   email: string;
@@ -14,76 +14,60 @@ export interface UpdateClientDTO extends Partial<CreateClientDTO> {
   id: string;
 }
 
-export const clientService = {
-  getAll: () => 
-    api.get<Client[]>('/clients'),
-
-  getById: (id: string) => 
-    api.get<Client>(`/clients/${id}`),
-
-  create: (data: CreateClientDTO) => 
-    api.post<Client>('/clients', data),
-
-  update: ({ id, ...data }: UpdateClientDTO) => 
-    api.put<Client>(`/clients/${id}`, data),
-
-  delete: (id: string) => 
-    api.delete<void>(`/clients/${id}`),
-
-  search: (query: string) => 
-    api.get<Client[]>('/clients/search', { params: { query } }),
-};
-=======
-```typescript
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
-import { setupCache } from 'axios-cache-adapter';
-import { retryAdapterEnhancer } from 'axios-extensions';
-
 export class APIClient {
   private static instance: APIClient;
   private client: AxiosInstance;
-  
-  private constructor() {
-    const cache = setupCache({
-      maxAge: 15 * 60 * 1000, // Cache for 15 minutes
-      exclude: { query: false }
-    });
 
+  private constructor() {
+    // Initialize Axios instance
     this.client = axios.create({
       baseURL: import.meta.env.VITE_API_URL,
       timeout: 10000,
-      adapter: retryAdapterEnhancer(cache.adapter, { 
-        retries: 3,
-        retryDelay: retryCount => retryCount * 1000
-      })
     });
 
     this.setupInterceptors();
   }
 
   private setupInterceptors() {
+    // Request interceptor for adding token and handling cache
     this.client.interceptors.request.use(
-      (config) => {
+      async (config: AxiosRequestConfig) => {
         const token = localStorage.getItem('token');
         if (token) {
-          config.headers.Authorization = `Bearer ${token}`;
+          config.headers = {
+            ...config.headers,
+            Authorization: `Bearer ${token}`,
+          };
         }
+
+        // Check for cached response
+        const cachedResponse = await localforage.getItem(config.url || '');
+        if (cachedResponse) {
+          console.log('Returning cached response:', cachedResponse);
+          return Promise.reject({ response: cachedResponse });
+        }
+
         return config;
       },
       (error) => Promise.reject(error)
     );
 
+    // Response interceptor for caching responses and handling errors
     this.client.interceptors.response.use(
-      (response) => response,
+      async (response) => {
+        await localforage.setItem(response.config.url || '', response);
+        return response;
+      },
       (error) => {
         if (error.response?.status === 401) {
-          // Handle token refresh or logout
+          console.error('Unauthorized access - consider token refresh or logout.');
         }
         return Promise.reject(error);
       }
     );
   }
 
+  // Singleton instance
   public static getInstance(): APIClient {
     if (!APIClient.instance) {
       APIClient.instance = new APIClient();
@@ -91,6 +75,7 @@ export class APIClient {
     return APIClient.instance;
   }
 
+  // Generic HTTP methods
   public async get<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
     const response = await this.client.get<T>(url, config);
     return response.data;
@@ -112,6 +97,5 @@ export class APIClient {
   }
 }
 
+// Export singleton instance
 export const apiClient = APIClient.getInstance();
-```
->>>>>>> b597b98 (Update project files and sync with GitHub)

@@ -1,7 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { clientService } from '../services/api/client';
 import { useNotificationStore } from '../lib/store';
-import type { Client } from '../types';
 
 export function useClient(clientId: string) {
   const queryClient = useQueryClient();

@@ -1,5 +1,4 @@
 import OpenAI from 'openai';
-import { useNotificationStore } from '../../lib/store';
 
 // Initialize OpenAI client
 const openai = new OpenAI({

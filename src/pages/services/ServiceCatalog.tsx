@@ -2,10 +2,7 @@ import React from 'react';
 import { ServiceCategory } from '../../components/services/ServiceCategory';
 import { WhyChooseUs } from '../../components/services/WhyChooseUs';
 import { 
-  FileText, 
   Building2, 
-  FileCheck, 
-  Globe, 
   Calculator,
   MessageSquare,
   ArrowLeft 
@@ -102,7 +99,7 @@ export default function ServiceCatalog() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="mb-8">
           <Button
-            variant="ghost"
+            variant="outline"
             icon={ArrowLeft}
             onClick={() => navigate('/')}
             className="mb-6"

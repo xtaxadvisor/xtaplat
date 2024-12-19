@@ -1,4 +1,3 @@
-```typescript
 export interface AIMessage {
   role: 'user' | 'assistant' | 'system';
   content: string;
@@ -32,4 +31,3 @@ export interface AIFeedback {
   comment?: string;
   context: string;
 }
-```

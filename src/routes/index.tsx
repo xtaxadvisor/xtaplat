@@ -15,10 +15,7 @@ const ConsultationPage = React.lazy(() => import('../pages/consultation/Consulta
 const ServiceCatalog = React.lazy(() => import('../pages/services/ServiceCatalog'));
 const SameDayServices = React.lazy(() => import('../pages/services/SameDayServices'));
 const VideoLibrary = React.lazy(() => import('../pages/videos/VideoLibrary'));
-<<<<<<< HEAD
-=======
 const VideoDetail = React.lazy(() => import('../pages/videos/VideoDetail'));
->>>>>>> b597b98 (Update project files and sync with GitHub)
 
 export function AppRoutes() {
   const { isAuthenticated } = useAuth();
@@ -31,10 +28,7 @@ export function AppRoutes() {
         <Route path="/services" element={<ServiceCatalog />} />
         <Route path="/same-day-services" element={<SameDayServices />} />
         <Route path="/browse-videos" element={<VideoLibrary />} />
-<<<<<<< HEAD
-=======
         <Route path="/browse-videos/:videoId" element={<VideoDetail />} />
->>>>>>> b597b98 (Update project files and sync with GitHub)
         <Route 
           path="/login" 
           element={isAuthenticated ? <Navigate to="/" /> : <LoginPage />} 
