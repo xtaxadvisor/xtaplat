@@ -3,7 +3,7 @@
     "target": "ES2023",
     "module": "ESNext",
     "lib": ["ES2023", "DOM", "DOM.Iterable"],
-    "jsx": "react",
+    "jsx": "react-jsx",  // Updated for the new JSX transform
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
@@ -13,7 +13,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "isolatedModules": true,
-    "noEmit": true,
+    "noEmit": true,  // Useful for projects using a bundler like Vite or Webpack
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -21,21 +21,18 @@
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "noImplicitOverride": true,
-    "verbatimModuleSyntax": true,
-    "allowUnusedLabels": false,
-    "allowUnreachableCode": false,
-    "checkJs": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,  // For default import compatibility
     "typeRoots": ["./node_modules/@types", "./types"],
-    "allowSyntheticDefaultImports": true  // Ensures compatibility with non-ES module libraries
+    "types": ["node", "jest"]  // Specify types to be included
   },
   "include": [
     "src/**/*",
     "types/**/*"
   ],
   "exclude": [
-    "node_modules",
-    "dist"
+    "node_modules",  // Ignore node_modules
+    "dist"           // Ignore dist directory
   ]
 }
