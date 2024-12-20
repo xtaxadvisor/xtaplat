@@ -1,16 +1,46 @@
+# Global settings for the build & deploy process
 [build]
-command = "npm run build"
-publish = "dist"
-functions = "netlify/functions"
+  # Specify the build command from the package.json scripts
+  command = "npm run build"
+  
+  # Directory to publish (output directory from your build tool)
+  publish = "dist"
+  
+  # Directory containing Netlify serverless functions (if used)
+  functions = "netlify/functions"
 
+# Settings for the local development environment using Netlify Dev
 [dev]
-command = "npm run dev"
-port = 3000
-targetPort = 8888
-publish = "dist"
-framework = "#custom"
+  # Local development server command
+  command = "npm run dev"
+  
+  # Local server port (make sure this matches your dev server port)
+  port = 3000
+  
+  # The port your actual development server is using
+  targetPort = 8888
+  
+  # Optional: Specify the framework being used (uncomment if needed)
+  # framework = "#custom"
 
+# Redirects settings for SPA, ensuring all navigation is handled by index.html
 [[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Additional configurations for specific scenarios or advanced use-cases
+# Add CORS headers to all responses serving from /api/*
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE"
+    Access-Control-Allow-Headers = "Content-Type"
+
+# Additional redirects or rewrites for specific paths (uncomment if needed)
+# [[redirects]]
+#   from = "/api/*"
+#   to = "https://api.example.com/:splat"
+#   status = 200
+#   force = true
