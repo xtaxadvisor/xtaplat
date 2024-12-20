@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "jsx": "react",
+    "traceResolution": true,
     "target": "ES2023",
-    "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "module": "ESNext",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "jsx": "react",
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
     "isolatedModules": true,
-    "moduleDetection": "force",
     "noEmit": true,
     "strict": true,
     "noUnusedLocals": true,
@@ -21,14 +22,20 @@
     "allowUnusedLabels": false,
     "allowUnreachableCode": false,
     "checkJs": true,
-    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "baseUrl": ".",
+    "typeRoots": ["./node_modules/@types", "./types"],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "types/*": ["types/*"]
     }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src/**/*",
+    "types/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

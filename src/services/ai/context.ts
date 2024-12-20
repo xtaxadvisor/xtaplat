@@ -1,7 +1,5 @@
-```typescript
-import type { AIContext } from '../../types/ai';
 
-export const AI_CONTEXTS: Record<string, AIContext> = {
+export const AI_CONTEXTS: Record<string, LocalAIContext> = {
   tax: {
     id: 'tax',
     name: 'Tax Assistance',
@@ -16,8 +14,9 @@ Note: Always mention that this is general information and specific tax advice re
       'What tax deductions am I eligible for?',
       'How do I prepare for tax season?',
       'What documents do I need for filing taxes?',
-      'How does self-employment tax work?'
-    ]
+      'How does self-employment tax work?',
+    ],
+    additionalInfo: '', // Add any other required properties here
   },
   financial: {
     id: 'financial',
@@ -33,8 +32,9 @@ Note: Always clarify that specific financial advice requires professional consul
       'How should I start planning for retirement?',
       'What are the basics of investment?',
       'How can I create a budget?',
-      'What are the best ways to save money?'
-    ]
+      'What are the best ways to save money?',
+    ],
+    additionalInfo: '', // Add any other required properties here
   },
   service: {
     id: 'service',
@@ -50,15 +50,18 @@ Note: Be clear about service scope and limitations.`,
       'What services do you offer?',
       'How much do your services cost?',
       'How can I schedule a consultation?',
-      'What is your process for new clients?'
-    ]
+      'What is your process for new clients?',
+    ],
+      additionalInfo: '', // Add any other required properties here
+    }
+  };
+  
+  export interface LocalAIContext {
+    id: string;
+    name: string;
+    description: string;
+    systemPrompt: string;
+    suggestedQuestions: string[];
+    additionalInfo: string; // Optional field to add any other required properties
+    // Add any other required properties here
   }
-};
-
-export function getContextFromPath(path: string): string {
-  if (path.includes('/tax')) return 'tax';
-  if (path.includes('/financial')) return 'financial';
-  if (path.includes('/services')) return 'service';
-  return 'general';
-}
-```

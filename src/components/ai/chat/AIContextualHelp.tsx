@@ -1,34 +1,55 @@
-```typescript
-import React from 'react';
-import { Lightbulb } from 'lucide-react';
+import type { AIContext } from '../../../../types/ai'; // Ensure the module exists at this path or update the path accordingly
 
-interface AIContextualHelpProps {
-  context: string;
-  suggestions: string[];
-  onSelect: (suggestion: string) => void;
-}
-
-export function AIContextualHelp({ context, suggestions, onSelect }: AIContextualHelpProps) {
-  return (
-    <div className="p-4 bg-blue-50 rounded-lg">
-      <div className="flex items-center space-x-2 mb-3">
-        <Lightbulb className="h-5 w-5 text-blue-600" />
-        <span className="text-sm font-medium text-blue-900">
-          Related Questions
-        </span>
-      </div>
-      <div className="space-y-2">
-        {suggestions.map((suggestion, index) => (
-          <button
-            key={index}
-            onClick={() => onSelect(suggestion)}
-            className="w-full text-left p-2 text-sm text-blue-700 hover:bg-blue-100 rounded transition-colors duration-200"
-          >
-            {suggestion}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
-```
+export const AI_CONTEXTS: Record<string, AIContext> = {
+  tax: {
+    id: 'tax',
+    name: 'Tax Assistance',
+    description: 'Get help with tax-related questions',
+    systemPrompt: `You are a knowledgeable tax assistant. Focus on:
+- Explaining tax concepts in simple terms
+- Providing general tax guidance
+- Helping with tax planning
+- Clarifying tax documentation requirements
+Note: Always mention that this is general information and specific tax advice requires consultation.`,
+    suggestedQuestions: [
+      'What tax deductions am I eligible for?',
+      'How do I prepare for tax season?',
+      'What documents do I need for filing taxes?',
+      'How does self-employment tax work?',
+    ],
+  },
+  financial: {
+    id: 'financial',
+    name: 'Financial Planning',
+    description: 'Get help with financial planning',
+    systemPrompt: `You are a financial planning assistant. Focus on:
+- Basic financial planning concepts
+- Investment fundamentals
+- Retirement planning basics
+- Budgeting and saving strategies
+Note: Always clarify that specific financial advice requires professional consultation.`,
+    suggestedQuestions: [
+      'How should I start planning for retirement?',
+      'What are the basics of investment?',
+      'How can I create a budget?',
+      'What are the best ways to save money?',
+    ],
+  },
+  service: {
+    id: 'service',
+    name: 'Service Information',
+    description: 'Learn about our services',
+    systemPrompt: `You are a service information assistant. Focus on:
+- Explaining available services
+- Providing pricing information
+- Describing service processes
+- Helping with scheduling
+Note: Be clear about service scope and limitations.`,
+    suggestedQuestions: [
+      'What services do you offer?',
+      'How much do your services cost?',
+      'How can I schedule a consultation?',
+      'What is your process for new clients?',
+    ],
+  },
+};

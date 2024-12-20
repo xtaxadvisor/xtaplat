@@ -1,0 +1,8 @@
+// types/ai.d.ts
+export interface AIContext {
+  id: string;
+  name: string;
+  description: string;
+  systemPrompt: string;
+  suggestedQuestions: string[];
+}

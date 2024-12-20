@@ -5,30 +5,35 @@ import type { Thread, ThreadFilters } from '../../types/discussion';
 export const discussionService = {
   async getThreads(filters?: ThreadFilters) {
     try {
-      let q = collection(db, 'threads');
+      const threadsCollection = collection(db, 'threads');
+      let q = query(threadsCollection);
 
       if (filters?.category) {
+        q = query(threadsCollection, where('category', '==', filters.category));
         q = query(q, where('category', '==', filters.category));
       }
 
       if (filters?.location) {
+        q = query(threadsCollection, where('location', '==', filters.location));
         q = query(q, where('location', '==', filters.location));
       }
 
-      if (filters?.tags?.length) {
+      if (filters?.tags) {
+        q = query(threadsCollection, where('tags', 'array-contains-any', filters.tags));
         q = query(q, where('tags', 'array-contains-any', filters.tags));
       }
 
       // Add sorting based on filter preferences
       switch (filters?.sortBy) {
-        case 'popular':
+        case 'likes':
           q = query(q, orderBy('likes', 'desc'));
           break;
-        case 'unanswered':
+        case 'noReplies':
           q = query(q, where('replies', '==', 0));
           break;
-        default:
+        case 'recent':
           q = query(q, orderBy('createdAt', 'desc'));
+          break;
       }
 
       const snapshot = await getDocs(q);

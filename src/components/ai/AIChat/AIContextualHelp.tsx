@@ -1,14 +1,12 @@
-```typescript
 import React from 'react';
 import { Lightbulb } from 'lucide-react';
 
 interface AIContextualHelpProps {
-  context: string;
   suggestions: string[];
   onSelect: (suggestion: string) => void;
 }
 
-export function AIContextualHelp({ context, suggestions, onSelect }: AIContextualHelpProps) {
+export function AIContextualHelp({ suggestions, onSelect }: AIContextualHelpProps) {
   return (
     <div className="p-4 bg-blue-50 rounded-lg">
       <div className="flex items-center space-x-2 mb-3">
@@ -31,4 +29,3 @@ export function AIContextualHelp({ context, suggestions, onSelect }: AIContextua
     </div>
   );
 }
-```
