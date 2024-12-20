@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function AITypingIndicator() {
   return (
     <div className="flex items-center space-x-2 p-2">

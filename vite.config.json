@@ -1,14 +1,18 @@
-{
-  "compilerOptions": {
-    "target": "ES2024",
-    "lib": ["ES2024"],
-    "module": "ESNext",
-    "paths": {
-      "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@pages/*": ["src/pages/*"],
-      "@utils/*": ["src/utils/*"]
-    }
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': '/src', // Alias for src
+    },
   },
-  "include": ["src"]
-}
+  define: {
+    'process.env': process.env, // Support environment variables
+  },
+  server: {
+    port: 5173, // Set custom port
+    open: true, // Open browser on server start
+  },
+});

@@ -1,38 +1,23 @@
 {
   "compilerOptions": {
-    "target": "ES2023",
+    "target": "ESNext", // or ESNext if ES2024 causes issues
+    "lib": ["ES2023", "DOM"], // Add "DOM" for browser compatibility
     "module": "ESNext",
-    "lib": ["ES2023", "DOM", "DOM.Iterable"],
-    "jsx": "react-jsx",  // Updated for the new JSX transform
-    "baseUrl": ".",
+    "jsx": "react-jsx", // Enable the new JSX transform
+    "baseUrl": ".", // Enables paths aliases
     "paths": {
       "@/*": ["src/*"],
-      "types/*": ["types/*"]
+      "@components/*": ["src/components/*"],
+      "@pages/*": ["src/pages/*"],
+      "@utils/*": ["src/utils/*"]
     },
-    "moduleResolution": "node",
+    "strict": true, // Enable strict type checking
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "isolatedModules": true,
-    "noEmit": true,  // Useful for projects using a bundler like Vite or Webpack
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-    "noImplicitOverride": true,
-    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,  // For default import compatibility
-    "typeRoots": ["./node_modules/@types", "./types"],
-    "types": ["node", "jest"]  // Specify types to be included
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "src/**/*",
-    "types/**/*"
-  ],
-  "exclude": [
-    "node_modules",  // Ignore node_modules
-    "dist"           // Ignore dist directory
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
