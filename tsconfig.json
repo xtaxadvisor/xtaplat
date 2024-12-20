@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
-    "traceResolution": true,
     "target": "ES2023",
     "module": "ESNext",
     "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "jsx": "react",
     "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "types/*": ["types/*"]
+    },
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -25,10 +28,7 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "typeRoots": ["./node_modules/@types", "./types"],
-    "paths": {
-      "@/*": ["src/*"],
-      "types/*": ["types/*"]
-    }
+    "allowSyntheticDefaultImports": true  // Ensures compatibility with non-ES module libraries
   },
   "include": [
     "src/**/*",
