@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import supabase from '../services/supabaseClient'; // Ensure this path is correct or create the file
+import supabase from '../services/supabaseClient';
 
 const SupabaseDataComponent: React.FC = () => {
   const [data, setData] = useState<any[]>([]);
@@ -23,7 +23,7 @@ const SupabaseDataComponent: React.FC = () => {
 
   return (
     <div>
-      <h1>Data from Supabase</h1>
+      <h1>Supabase Data</h1>
       <ul>
         {data.map((item, index) => (
           <li key={index}>{JSON.stringify(item)}</li>
