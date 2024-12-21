@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import supabase from '../services/supabaseClient'; // Ensure this path is correct
+import supabase from '../services/supabaseClient'; // Ensure this path is correct or create the file
 
 const SupabaseDataComponent: React.FC = () => {
   const [data, setData] = useState<any[]>([]);
