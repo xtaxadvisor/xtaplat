@@ -1,8 +1,12 @@
+// src/services/supabaseClient.ts
 import { createClient } from '@supabase/supabase-js';
 
-// Use environment variables for secure configuration
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL; // Your Supabase URL
+const supabaseKey = import.meta.env.VITE_SUPABASE_KEY; // Your Supabase Anon Key
+
+if (!supabaseUrl || !supabaseKey) {
+  throw new Error('Missing Supabase environment variables');
+}
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
