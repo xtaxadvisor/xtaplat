@@ -1,23 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ESNext", // or ESNext if ES2024 causes issues
-    "lib": ["ES2023", "DOM"], // Add "DOM" for browser compatibility
+    "target": "esnext",
     "module": "ESNext",
-    "jsx": "react-jsx", // Enable the new JSX transform
-    "baseUrl": ".", // Enables paths aliases
+    "lib": ["ES2023", "DOM"],
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@pages/*": ["src/pages/*"],
-      "@utils/*": ["src/utils/*"]
+      "@/*": ["src/*"]
     },
-    "strict": true, // Enable strict type checking
+    "typeRoots": ["./node_modules/@types", "./src/types"], // Add this line
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "moduleResolution": "node",
-    "forceConsistentCasingInFileNames": true
+    "skipLibCheck": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src"]
 }

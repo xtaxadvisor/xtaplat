@@ -5,7 +5,7 @@ import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import { Notifications } from './components/ui/Notifications';
 import { AuthProvider } from './contexts/AuthContext';
 import { SplashScreen } from './components/ui/SplashScreen';
-import SupabaseDataComponent from "./components/data/SupabaseDataComponent.tsx";
+import SupabaseDataComponent from './components/SupabaseDataComponent';
 import ChatComponent from './components/ai/chat/ChatComponent';
 
 // Create a React Query client

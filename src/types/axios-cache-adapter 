@@ -1,0 +1,28 @@
+declare module 'axios-cache-adapter' {
+  import { AxiosRequestConfig, AxiosInstance, AxiosResponse } from 'axios';
+
+  interface CacheOptions {
+    maxAge?: number; // Cache expiration time in milliseconds
+    exclude?: { query?: boolean }; // Exclude specific requests from caching
+    store?: any; // Cache store
+    readOnError?: boolean; // Use cache data when the request fails
+    clearOnStale?: boolean; // Automatically clear stale cache entries
+    debug?: boolean; // Enable debug logs
+  }
+
+  export function setupCache(options: CacheOptions): {
+    adapter: AxiosRequestConfig['adapter'];
+    store: any;
+  };
+
+  export function serializeQuery(query: any): string;
+
+  export function makeCacheKey(config: AxiosRequestConfig): string;
+
+  export function clearCache(config: AxiosRequestConfig): Promise<void>;
+
+  export default function cacheAdapterEnhancer(
+    adapter: AxiosRequestConfig['adapter'],
+    options: CacheOptions
+  ): AxiosRequestConfig['adapter'];
+}
