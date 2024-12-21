@@ -1,15 +1,18 @@
 {
   "compilerOptions": {
+    "jsx": "react",
     "target": "esnext",
     "module": "ESNext",
-    "lib": ["ES2023", "DOM"],
+    "lib": ["ES2022", "DOM"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     },
     "typeRoots": ["./node_modules/@types", "./src/types"], // Add this line
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
   },
   "include": ["src"]
 }

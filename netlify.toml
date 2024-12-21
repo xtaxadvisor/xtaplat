@@ -1,46 +1,31 @@
 # Global settings for the build & deploy process
 [build]
-  # Specify the build command from the package.json scripts
-  command = "npm run build"
-  
-  # Directory to publish (output directory from your build tool)
-  publish = "dist"
-  
-  # Directory containing Netlify serverless functions (if used)
-  functions = "netlify/functions"
+  command = "npm run build"  # Build command
+  publish = "dist"           # Output directory
+  functions = "netlify/functions"  # Serverless functions (if any)
 
-# Settings for the local development environment using Netlify Dev
+  [build.environment]
+    VITE_API_URL = "https://www.protaxadvisors.tax"
+    VITE_ENV = "production"
+    OPENAI_API_KEY = "your-production-key"
+    NODE_ENV = "production"
+
+# Local development environment using Netlify Dev
 [dev]
-  # Local development server command
   command = "npm run dev"
-  
-  # Local server port (make sure this matches your dev server port)
   port = 3000
-  
-  # The port your actual development server is using
-  targetPort = 8888
-  
-  # Optional: Specify the framework being used (uncomment if needed)
-  # framework = "#custom"
+  targetPort = 5173  # Match Vite's default dev server port
 
-# Redirects settings for SPA, ensuring all navigation is handled by index.html
+# Redirects for Single Page Application (SPA)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-# Additional configurations for specific scenarios or advanced use-cases
-# Add CORS headers to all responses serving from /api/*
+# Add CORS headers for API responses
 [[headers]]
   for = "/api/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
     Access-Control-Allow-Methods = "GET, POST, PUT, DELETE"
     Access-Control-Allow-Headers = "Content-Type"
-
-# Additional redirects or rewrites for specific paths (uncomment if needed)
-# [[redirects]]
-#   from = "/api/*"
-#   to = "https://api.example.com/:splat"
-#   status = 200
-#   force = true

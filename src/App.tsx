@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import styles from './App.module.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import { Notifications } from './components/ui/Notifications';
@@ -38,9 +39,9 @@ const App: React.FC = () => {
             {showSplash ? (
               <SplashScreen />
             ) : (
-              <div className="App h-screen bg-gray-50">
-                <header className="App-header bg-white shadow p-4">
-                  <h1 className="text-2xl font-bold text-center">Welcome to the App</h1>
+              <div className={styles.App}>
+                <header className={styles['App-header']}>
+                  <h1 className={`${styles['text-2xl']} ${styles['text-center']}`}>Welcome to the App</h1>
                 </header>
                 <main className="p-4">
                   <Routes>
