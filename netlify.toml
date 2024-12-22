@@ -1,6 +1,6 @@
 # Global settings for the build & deploy process
 [build]
-  command = "npm run build"  # Build command
+  command = "npm install && npm run build"  # Ensure dependencies are installed
   publish = "dist"           # Output directory
   functions = "netlify/functions"  # Serverless functions (if any)
 
