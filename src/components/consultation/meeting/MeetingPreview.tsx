@@ -9,8 +9,14 @@ interface MeetingPreviewProps {
   onCancel: () => void;
 }
 
-export function MeetingPreview({ onJoin, onCancel }: MeetingPreviewProps) {
-  const { videoRef, isVideoEnabled, toggleVideo } = useVideoStream();
+interface MeetingPreviewProps {
+  onJoin: () => void;
+  onCancel: () => void;
+  consultationId: string;
+}
+
+export function MeetingPreview({ onJoin, onCancel, consultationId }: MeetingPreviewProps) {
+  const { videoRef, isVideoEnabled, toggleVideo } = useVideoStream(consultationId);
 
   return (
     <div className="max-w-2xl mx-auto p-6">

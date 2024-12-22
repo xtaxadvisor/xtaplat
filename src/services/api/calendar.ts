@@ -56,9 +56,7 @@ export const calendarService = {
     api.delete<void>(`/calendar/events/${id}`),
 
   getAvailability: (date: string) => 
-    api.get<Array<{ start: string; end: string }>>('/calendar/availability', {
-      params: { date }
-    }),
+    api.get<Array<{ start: string; end: string }>>('/calendar/availability?' + new URLSearchParams({ date }).toString()),
 
   syncCalendar: (provider: string) => 
     api.post<void>('/calendar/sync', { provider }),

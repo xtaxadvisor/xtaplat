@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { format, addMonths, subMonths, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isToday } from 'date-fns';
 import { Button } from '../../ui/Button';
-import { EventModal } from './EventModal';
+import { EventModal } from './EventModal/EventModal';
 import { EventDetails } from './EventDetails';
 import { useCalendar } from '../../../hooks/useCalendar';
 

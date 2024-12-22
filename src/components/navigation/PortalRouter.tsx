@@ -5,11 +5,11 @@ import { LoadingSpinner } from '../ui/LoadingSpinner';
 
 // Lazy load portal components
 const AdminPortal = React.lazy(() => import('../../pages/admin/AdminPortal'));
-const ClientPortal = React.lazy(() => import('../../pages/client/ClientPortal'));
-const ProfessionalPortal = React.lazy(() => import('../../pages/professional/ProfessionalPortal'));
+const ClientPortal = React.lazy(() => import('../../pages/client/ClientPortal').catch(() => ({ default: () => <div>Client Portal not found</div> })));
+const ProfessionalPortal = React.lazy(() => import('../../pages/professional/ProfessionalPortal').catch(() => ({ default: () => <div>Professional Portal not found</div> })));
 const InvestorPortal = React.lazy(() => import('../../pages/investor/InvestorPortal'));
 const StudentPortal = React.lazy(() => import('../../pages/student/StudentPortal'));
-const MessagingPortal = React.lazy(() => import('../../pages/messaging/MessagingPortal'));
+const MessagingPortal = React.lazy(() => import('../../pages/messaging/MessagingPortal').catch(() => ({ default: () => <div>Messaging Portal not found</div> })));
 
 export function PortalRouter() {
   return (

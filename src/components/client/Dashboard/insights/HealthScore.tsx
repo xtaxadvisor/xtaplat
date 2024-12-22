@@ -1,5 +1,6 @@
 import React from 'react';
 import { HealthMetric } from '../../../../types/client';
+import './HealthScore.css';
 
 interface HealthScoreProps {
   score: number;
@@ -12,12 +13,10 @@ export function HealthScore({ score, metrics }: HealthScoreProps) {
       <h3 className="text-lg font-medium text-gray-900 mb-4">Financial Health Score</h3>
       <div className="flex items-center justify-between">
         <div className="flex-1">
-          <div className="h-4 bg-gray-200 rounded-full">
             <div 
-              className="h-4 bg-green-500 rounded-full" 
-              style={{ width: `${score}%` }} 
+              className="health-score-bar" 
+              style={{ '--score-width': `${score}%` } as React.CSSProperties}
             />
-          </div>
         </div>
         <span className="ml-4 text-2xl font-bold text-green-500">{score}/100</span>
       </div>

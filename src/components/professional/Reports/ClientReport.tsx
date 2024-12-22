@@ -86,12 +86,10 @@ export function ClientReport({ dateRange, isLoading }: ClientReportProps) {
                 <div key={index} className="flex items-center justify-between">
                   <span className="text-sm text-gray-600">{item.metric}</span>
                   <div className="flex items-center space-x-4">
-                    <div className="w-32 bg-gray-200 rounded-full h-2">
                       <div
-                        className="bg-blue-600 h-2 rounded-full"
+                        className="progress-bar"
                         style={{ width: `${(item.value / 5) * 100}%` }}
                       />
-                    </div>
                     <span className="text-sm font-medium text-gray-900">
                       {item.value}
                     </span>

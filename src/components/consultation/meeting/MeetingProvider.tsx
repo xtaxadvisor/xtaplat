@@ -61,6 +61,7 @@ export function MeetingProvider({ consultationId, onEnd }: MeetingProviderProps)
   if (!isInMeeting) {
     return (
       <MeetingPreview
+        consultationId={consultationId}
         onJoin={handleJoinMeeting}
         onCancel={onEnd}
       />

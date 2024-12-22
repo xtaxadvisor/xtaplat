@@ -4,7 +4,7 @@ import { analyticsService } from '../../../services/api/analytics';
 export function useSystemStatus() {
   const { data: status, isLoading } = useQuery({
     queryKey: ['system-status'],
-    queryFn: analyticsService.getSystemStatus,
+    queryFn: ({ queryKey }) => analyticsService.getAnalytics(queryKey[1]),
     refetchInterval: 60000 // Refresh every minute
   });
 

@@ -61,6 +61,7 @@ export function NotificationSettings({ settings, onSave, isLoading }: Notificati
                   checked={value}
                   onChange={() => handleToggle('email', key)}
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                  title={`Toggle ${key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}`}
                 />
               </div>
             </div>
@@ -79,14 +80,13 @@ export function NotificationSettings({ settings, onSave, isLoading }: Notificati
                   {key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
                 </span>
               </div>
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  checked={value}
-                  onChange={() => handleToggle('push', key)}
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                />
-              </div>
+                  <input
+                    type="checkbox"
+                    checked={value}
+                    onChange={() => handleToggle('push', key)}
+                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    title={`Toggle ${key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}`}
+                  />
             </div>
           ))}
         </div>

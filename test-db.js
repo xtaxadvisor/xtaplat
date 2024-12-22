@@ -1,4 +1,4 @@
-const pool = require('./db'); // Import your database module
+import pool from './db.js'; // Ensure the file extension is included
 
 (async () => {
   try {
@@ -7,6 +7,6 @@ const pool = require('./db'); // Import your database module
   } catch (err) {
     console.error('Database connection error:', err.message);
   } finally {
-    pool.end(); // Close the connection pool
+    pool.end();
   }
 })();

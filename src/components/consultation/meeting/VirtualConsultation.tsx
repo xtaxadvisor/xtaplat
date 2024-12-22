@@ -10,16 +10,20 @@ import { MeetingControls } from './MeetingControls';
 import { useConsultation } from '../../../hooks/useConsultation';
 import { LoadingSpinner } from '../../ui/LoadingSpinner';
 import { useNotificationStore } from '../../../lib/store';
+const { addNotification } = useNotificationStore();
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../contexts/AuthContext';
 
 interface VirtualConsultationProps {
   consultationId: string;
-  onEnd: () => void;
-}
+    onEnd: () => void;
+  }
 
 export function VirtualConsultation({ consultationId, onEnd }: VirtualConsultationProps) {
-  const { consultation, isLoading: consultationLoading, updateConsultation } = useConsultation(consultationId);
+  const { consultation, isLoading, updateConsultation } = useConsultation(consultationId);
+  const { addNotification } = useNotificationStore();
+  const navigate = useNavigate();
+  const { user } = useAuth();
   const { videoRef, isMuted, isVideoEnabled, isLoading: streamLoading, toggleMute, toggleVideo } = useVideoStream(consultationId);
   const { messages, sendMessage, isLoading: chatLoading, isSending } = useChat(consultationId);
   const { isSharing, startScreenShare, stopScreenShare } = useScreenShare();
@@ -45,16 +49,21 @@ export function VirtualConsultation({ consultationId, onEnd }: VirtualConsultati
 
     // Update consultation status when joining
     if (consultation && consultation.status === 'scheduled') {
-      updateConsultation({
-        id: consultationId,
-        status: 'in-progress'
-      }).catch(() => {
-        addNotification('Failed to update consultation status', 'error');
-      });
+      (async () => {
+        try {
+          await updateConsultation({
+            id: consultationId,
+            status: 'in-progress'
+          });
+        } catch {
+          addNotification('Failed to update consultation status', 'error');
+        }
+      })();
     }
+  }, [consultation, consultationId, updateConsultation, addNotification, navigate, user]);
 
     // Handle beforeunload to update status when leaving
-    const handleBeforeUnload = () => {
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
       if (consultation?.status === 'in-progress') {
         updateConsultation({
           id: consultationId,
@@ -62,23 +71,24 @@ export function VirtualConsultation({ consultationId, onEnd }: VirtualConsultati
         });
       }
     };
-
+  
     window.addEventListener('beforeunload', handleBeforeUnload);
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
-      handleBeforeUnload();
+      handleBeforeUnload(new Event('beforeunload') as BeforeUnloadEvent);
     };
   }, [consultation, consultationId, updateConsultation, addNotification, navigate, user]);
 
-  if (consultationLoading || streamLoading || !consultation) {
+  if (isLoading || !consultation?.status) {
     return (
       <div className="flex items-center justify-center h-screen bg-gray-900">
         <LoadingSpinner />
       </div>
-    );
-  }
+  );
 
-  const handleEndMeeting = async () => {
+  const { consultation, isLoading, updateConsultation } = useConsultation(consultationId);
+
+  async function handleEndMeeting(consultationId: string) {
     try {
       await updateConsultation({
         id: consultationId,
@@ -88,7 +98,7 @@ export function VirtualConsultation({ consultationId, onEnd }: VirtualConsultati
     } catch (error) {
       addNotification('Failed to end meeting', 'error');
     }
-  };
+  }
 
   return (
     <div className="flex h-screen bg-gray-900">
@@ -133,7 +143,7 @@ export function VirtualConsultation({ consultationId, onEnd }: VirtualConsultati
           isVideoEnabled={isVideoEnabled}
           onToggleMute={toggleMute}
           onToggleVideo={toggleVideo}
-          onEndCall={handleEndMeeting}
+          onEndCall={() => handleEndMeeting(consultationId)}
         />
       </div>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUp, ArrowDown } from 'lucide-react';
+import styles from './MetricComparison.module.css';
 import { formatPercentage } from '../../../../utils/analytics/metrics';
 
 interface ComparisonMetric {
@@ -35,8 +36,8 @@ export function MetricComparison({ metrics }: MetricComparisonProps) {
                 {metric.current}{metric.unit}
               </span>
               <div className="mt-2 h-2 bg-gray-200 rounded-full">
-                <div 
-                  className="h-2 rounded-full bg-blue-600"
+                <div
+                  className={`h-2 rounded-full bg-blue-600 ${styles['progress-bar']}`}
                   style={{ width: `${Math.min(progress, 100)}%` }}
                 />
               </div>

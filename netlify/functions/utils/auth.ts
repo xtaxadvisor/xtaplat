@@ -1,4 +1,4 @@
-import { createSecureHash } from '../../src/utils/crypto';
+import { createSecureHash } from '../../../src/utils/crypto';
 import { sign } from '@tsndr/jose-web';
 
 const TOKEN_EXPIRY = 3600; // 1 hour in seconds

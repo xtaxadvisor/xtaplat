@@ -30,5 +30,5 @@ export const clientService = {
     api.delete<void>(`/clients/${id}`),
 
   search: (query: string) => 
-    api.get<Client[]>('/clients/search', { params: { query } }),
+    api.get<Client[]>(`/clients/search?query=${encodeURIComponent(query)}`),
 };

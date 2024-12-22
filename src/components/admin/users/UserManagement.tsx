@@ -108,7 +108,7 @@ export function UserManagement() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <Button
-                        variant="ghost"
+                        variant="outline"
                         size="sm"
                         icon={Edit2}
                         className="mr-2"

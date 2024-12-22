@@ -87,7 +87,7 @@ export function AdminSettings() {
                     <input
                       type="checkbox"
                       className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                      defaultChecked={settings?.security?.require2FA}
+                      defaultChecked={settings?.security?.twoFactorEnabled}
                     />
                   </div>
                   <Input
@@ -112,6 +112,7 @@ export function AdminSettings() {
                           type="checkbox"
                           className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                           defaultChecked={settings?.notifications?.[setting]}
+                          title={setting.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
                         />
                       </div>
                     ))}

@@ -13,11 +13,11 @@ import {
 } from 'lucide-react';
 import { Button } from '../../ui/Button';
 import { ClientInfo } from './ClientInfo';
-import { ClientDocuments } from './ClientDocuments';
-import { ClientCommunication } from './ClientCommunication';
+import { ClientDocuments } from '../../ClientDocuments/ClientDocuments';
+import { ClientCommunication } from '../../ClientCommunication/ClientCommunication';
 import { ClientHistory } from './ClientHistory';
 import { Modal } from '../../ui/Modal';
-import { ClientForm } from './ClientForm';
+import { ClientForm } from '../ClientForm/ClientForm';
 import { useClient } from '../../../hooks/useClient';
 import { LoadingSpinner } from '../../ui/LoadingSpinner';
 

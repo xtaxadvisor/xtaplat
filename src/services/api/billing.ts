@@ -67,8 +67,7 @@ export const billingService = {
     api.put<Invoice>(`/invoices/${id}/paid`),
 
   downloadInvoice: (id: string, format: 'pdf' | 'csv' = 'pdf') => 
-    api.get<Blob>(`/invoices/${id}/download`, {
-      params: { format },
+    api.get<Blob>(`/invoices/${id}/download?format=${format}`, {
       headers: { Accept: 'application/octet-stream' }
     }),
 

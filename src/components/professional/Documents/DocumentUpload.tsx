@@ -77,6 +77,7 @@ export function DocumentUpload({ onUpload, onClose }: DocumentUploadProps) {
           onChange={handleFileSelect}
           multiple
           className="hidden"
+          title="Upload files"
         />
         <div className="space-y-2">
           <Upload className="mx-auto h-12 w-12 text-gray-400" />
@@ -116,6 +117,7 @@ export function DocumentUpload({ onUpload, onClose }: DocumentUploadProps) {
                   type="button"
                   onClick={() => removeFile(index)}
                   className="text-gray-400 hover:text-gray-500"
+                  title="Remove file"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -155,6 +157,7 @@ export function DocumentUpload({ onUpload, onClose }: DocumentUploadProps) {
                   type="button"
                   onClick={() => removeTag(tag)}
                   className="ml-1 text-blue-600 hover:text-blue-500"
+                  title="Remove tag"
                 >
                   <X className="h-4 w-4" />
                 </button>

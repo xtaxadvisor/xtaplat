@@ -1,9 +1,21 @@
 import React from 'react';
+
+interface Reply {
+  id: string;
+  author: {
+    displayName: string;
+    avatarUrl?: string;
+  };
+  content: string;
+  createdAt: string;
+  likes: number;
+}
 import { useParams } from 'react-router-dom';
 import { ThumbsUp, MessageSquare, Share2, Flag } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
-import { useThread } from '../../hooks/useThread';
+import { useThread } from '../../hooks/useThread'; // Ensure this path is correct or update it to the correct path
+// If the path is incorrect, update it to the correct path where useThread is located
 import { LoadingSpinner } from '../ui/LoadingSpinner';
 import { formatTimeAgo } from '../../utils/date';
 
@@ -53,12 +65,11 @@ export function ThreadDetail() {
         </h2>
 
         <div className="bg-white rounded-lg shadow p-6">
-          <Input
-            label="Add a reply"
-            multiline
-            rows={4}
-            placeholder="What are your thoughts?"
-          />
+        <Input
+          label="Add a reply"
+          rows={4}
+          placeholder="What are your thoughts?"
+        />
           <div className="mt-4 flex justify-end">
             <Button variant="primary" icon={MessageSquare}>
               Post Reply
@@ -66,7 +77,7 @@ export function ThreadDetail() {
           </div>
         </div>
 
-        {replies?.map((reply) => (
+        {replies?.map((reply: Reply) => (
           <div key={reply.id} className="bg-white rounded-lg shadow p-6">
             <div className="flex items-start space-x-3">
               <img
@@ -87,7 +98,7 @@ export function ThreadDetail() {
                   {reply.content}
                 </div>
                 <div className="mt-4 flex items-center space-x-4">
-                  <Button variant="ghost" size="sm" icon={ThumbsUp}>
+                  <Button variant="outline" size="sm" icon={ThumbsUp}>
                     {reply.likes}
                   </Button>
                   <Button variant="ghost" size="sm" icon={MessageSquare}>

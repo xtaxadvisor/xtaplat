@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ConsultationLayout } from '../../components/consultation/ConsultationLayout';
+import { useParams } from 'react-router-dom';
 import { ConsultationList } from '../../components/consultation/ConsultationList';
 import { ConsultationDetail } from '../../components/consultation/ConsultationDetail';
 import { BookConsultation } from '../../components/consultation/BookConsultation';
@@ -13,7 +14,10 @@ export default function ConsultationPage() {
         <Route path="/" element={<ConsultationList />} />
         <Route path="/book" element={<BookConsultation />} />
         <Route path="/:consultationId" element={<ConsultationDetail />} />
-        <Route path="/meeting/:meetingId" element={<VirtualMeeting />} />
+        <Route 
+          path="/meeting/:meetingId" 
+          element={<VirtualMeeting meetingId={useParams().meetingId} onEnd={() => { /* handle end */ }} />} 
+        />
       </Routes>
     </ConsultationLayout>
   );

@@ -27,7 +27,7 @@ export function useReports() {
 
   const { data: metrics, isLoading: metricsLoading } = useQuery({
     queryKey: ['performance-metrics', dateRange],
-    queryFn: () => analyticsService.getPerformanceMetrics(dateRange)
+    queryFn: () => analyticsService.getAnalytics(dateRange)
   });
 
   const { data: revenueData, isLoading: revenueLoading } = useQuery({

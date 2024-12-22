@@ -249,10 +249,10 @@ export function Billing() {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                         <div className="flex space-x-3">
-                          <Button variant="ghost" size="sm" icon={Download}>
+                          <Button variant="outline" size="sm" icon={Download}>
                             Download
                           </Button>
-                          <Button variant="ghost" size="sm">
+                          <Button variant="outline" size="sm">
                             View
                           </Button>
                         </div>

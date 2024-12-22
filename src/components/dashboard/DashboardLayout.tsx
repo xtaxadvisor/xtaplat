@@ -46,7 +46,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <Button
-                variant="ghost"
+                variant="outline"
                 onClick={() => navigate('/')}
                 icon={ArrowLeft}
                 className="mr-4"
@@ -56,7 +56,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
               <span className="text-xl font-bold text-blue-600">XTaXAdvisors</span>
             </div>
             <div className="flex items-center space-x-4">
-              <button className="text-gray-500 hover:text-gray-700">
+              <button className="text-gray-500 hover:text-gray-700" title="Notifications">
                 <Bell className="h-6 w-6" />
               </button>
               <div className="relative group">
@@ -102,7 +102,9 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                     }`}
                 >
-                  <item.icon className={`mr-4 h-6 w-6 ${isActive ? 'text-blue-600' : 'text-gray-400'}`} />
+                  <span className={`mr-4 h-6 w-6 ${isActive ? 'text-blue-600' : 'text-gray-400'}`}>
+                    <item.icon />
+                  </span>
                   {item.title}
                 </Link>
               );

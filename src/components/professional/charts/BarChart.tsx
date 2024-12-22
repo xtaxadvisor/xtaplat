@@ -39,7 +39,7 @@ export function BarChart() {
         display: false,
       },
       tooltip: {
-        mode: 'index',
+        mode: 'nearest' as 'nearest',
         intersect: false,
       },
     },

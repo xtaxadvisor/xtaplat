@@ -37,14 +37,10 @@ export function useAnalytics(timeRange: string) {
     queryFn: () => analyticsService.getClientGrowth(timeRange)
   });
 
-  const { data: performanceMetrics, isLoading: performanceLoading } = useQuery({
-    queryKey: ['performance-metrics', timeRange],
-    queryFn: () => analyticsService.getPerformanceMetrics(timeRange)
-  });
 
   const exportAnalytics = async (format: 'pdf' | 'csv' | 'excel') => {
     try {
-      const data = await analyticsService.exportAnalytics(timeRange, format);
+      const data = await analyticsService.exportAnalytics({ timeRange, format });
       const blob = new Blob([data], { 
         type: format === 'csv' ? 'text/csv' : 
               format === 'excel' ? 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' : 
@@ -64,12 +60,11 @@ export function useAnalytics(timeRange: string) {
     }
   };
 
-  return {
-    metrics,
-    revenueData,
-    clientGrowth,
-    performanceMetrics,
-    isLoading: metricsLoading || revenueLoading || clientGrowthLoading || performanceLoading,
-    exportAnalytics
-  };
-}
+    return {
+      metrics,
+      revenueData,
+      clientGrowth,
+      exportAnalytics,
+      isLoading: metricsLoading || revenueLoading || clientGrowthLoading,
+    };
+  }

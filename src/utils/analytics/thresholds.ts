@@ -1,4 +1,5 @@
-import type { MetricThreshold, PerformanceMetrics } from '../../types/analytics';
+import type { MetricThreshold } from '../../types/metrics'; // Ensure the path is correct or create the module if it doesn't exist
+import type { PerformanceMetrics } from '../../types/performance-metrics'; // Adjust the path as necessary
 
 export function checkThresholdViolation(
   value: number,
@@ -25,6 +26,6 @@ export function calculateMetricStatus(
 ): Record<string, 'normal' | 'warning' | 'critical'> {
   return Object.entries(metrics).reduce((acc, [key, metric]) => ({
     ...acc,
-    [key]: checkThresholdViolation(metric.current, metric.thresholds)
+    [key]: checkThresholdViolation((metric as PerformanceMetrics).current, (metric as PerformanceMetrics).thresholds)
   }), {});
 }

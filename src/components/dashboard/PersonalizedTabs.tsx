@@ -91,10 +91,12 @@ export function PersonalizedTabs() {
                 }
               `}
             >
-              <tab.icon className={`
-                mr-2 h-5 w-5
-                ${activeTab === tab.id ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500'}
-              `} />
+              <tab.icon 
+                className={`
+                  mr-2 h-5 w-5
+                  ${activeTab === tab.id ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500'}
+                `.trim()} 
+              />
               <span>{tab.label}</span>
               {tab.count !== undefined && (
                 <span className={`

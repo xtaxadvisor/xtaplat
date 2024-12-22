@@ -111,7 +111,9 @@ export function VideoLibrary() {
           </div>
           <div className="flex items-center space-x-2">
             <Filter className="h-5 w-5 text-gray-400" />
+            <label htmlFor="category-select" className="sr-only">Filter by category</label>
             <select
+              id="category-select"
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
               className="border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"

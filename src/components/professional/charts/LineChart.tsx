@@ -8,7 +8,8 @@ import {
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
+  ChartOptions
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
@@ -37,15 +38,14 @@ export function LineChart() {
       },
     ],
   };
-
-  const options = {
+  const options: ChartOptions<'line'> = {
     responsive: true,
     plugins: {
       legend: {
         display: false,
       },
       tooltip: {
-        mode: 'index',
+        mode: 'nearest',
         intersect: false,
       },
     },
@@ -56,7 +56,12 @@ export function LineChart() {
           color: 'rgba(0, 0, 0, 0.05)',
         },
         ticks: {
-          callback: (value: number) => `$${value.toLocaleString()}`,
+          callback: function(tickValue: string | number) {
+            if (typeof tickValue === 'number') {
+              return `$${tickValue.toLocaleString()}`;
+            }
+            return tickValue;
+          },
         },
       },
       x: {

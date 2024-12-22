@@ -9,21 +9,22 @@ export interface AnalyticsMetrics {
 
 export const analyticsService = {
   getAnalytics: (timeRange: string) =>
-    api.get<AnalyticsMetrics>('/analytics', { params: { timeRange } }),
+    api.get<AnalyticsMetrics>('/analytics', { queryParams: { timeRange } } as any),
 
   exportAnalytics: (timeRange: string) =>
     api.get<Blob>('/analytics/export', {
-      params: { timeRange },
+      queryParams: { timeRange },
       headers: { Accept: 'text/csv' }
     }),
 
   getRevenueData: (timeRange: string) =>
     api.get<Array<{ date: string; value: number }>>('/analytics/revenue', {
-      params: { timeRange }
+      queryParams: { timeRange }
     }),
 
   getClientGrowth: (timeRange: string) =>
     api.get<Array<{ date: string; value: number }>>('/analytics/clients', {
-      params: { timeRange }
+      queryParams: { timeRange },
+      headers: { 'Content-Type': 'application/json' }
     })
 };

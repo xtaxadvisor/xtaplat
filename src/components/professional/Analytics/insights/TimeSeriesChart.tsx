@@ -1,6 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { formatDate } from '../../../../utils/date';
+import './TimeSeriesChart.css';
 
 interface TimeSeriesData {
   label: string;
@@ -57,8 +58,10 @@ export function TimeSeriesChart({ series, height = 300 }: TimeSeriesChartProps) 
   };
 
   return (
-    <div style={{ height }}>
+    <div className="time-series-chart" style={{ height: `${height}px` }}>
+    <div className="time-series-chart-container">
       <Line data={data} options={options} />
+    </div>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { StudentDashboard } from '../../components/student/StudentDashboard';
 import { StudentLayout } from '../../components/student/StudentLayout';
 import { LearningResources } from '../../components/student/LearningResources';
 import { PracticeExercises } from '../../components/student/PracticeExercises';
-import { ProgressTracking } from '../../components/student/ProgressTracking';
+import { ProgressTracking } from '../../components/student/CorrectPathToProgressTracking';
 
 export default function StudentPortal() {
   return (

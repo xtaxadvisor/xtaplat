@@ -5,7 +5,8 @@ import type { Thread, ThreadFilters } from '../../types/discussion';
 export const discussionService = {
   async getThreads(filters?: ThreadFilters) {
     try {
-      let q = collection(db, 'threads');
+      const threadsCollection = collection(db, 'threads');
+      let q = query(threadsCollection);
 
       if (filters?.category) {
         q = query(q, where('category', '==', filters.category));
@@ -15,7 +16,7 @@ export const discussionService = {
         q = query(q, where('location', '==', filters.location));
       }
 
-      if (filters?.tags?.length) {
+      if (filters?.tags) {
         q = query(q, where('tags', 'array-contains-any', filters.tags));
       }
 
@@ -27,8 +28,9 @@ export const discussionService = {
         case 'unanswered':
           q = query(q, where('replies', '==', 0));
           break;
-        default:
+        case 'recent':
           q = query(q, orderBy('createdAt', 'desc'));
+          break;
       }
 
       const snapshot = await getDocs(q);

@@ -15,7 +15,6 @@ export function AnalyticsDashboard() {
     metrics, 
     revenueData, 
     clientGrowth, 
-    performanceMetrics,
     isLoading, 
     exportAnalytics 
   } = useAnalytics(timeRange);
@@ -71,7 +70,7 @@ export function AnalyticsDashboard() {
         </div>
       </div>
 
-      <MetricsGrid metrics={metrics} />
+      <MetricsGrid metrics={metrics || null} />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white rounded-lg shadow p-6">

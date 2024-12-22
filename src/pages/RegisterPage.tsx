@@ -53,7 +53,7 @@ export default function RegisterPage() {
       <div className="max-w-md w-full space-y-8">
         <div>
           <Button
-            variant="ghost"
+            variant="outline"
             className="mb-4"
             onClick={() => navigate('/')}
             icon={ArrowLeft}

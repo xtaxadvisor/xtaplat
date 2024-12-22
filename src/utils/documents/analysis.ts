@@ -1,4 +1,11 @@
-import type { Finding, Recommendation, DocumentAnalysis } from '../../types/documents';
+
+export type Finding = {
+  // Define the structure of a finding
+};
+
+export type Recommendation = {
+  // Define the structure of a recommendation
+};
 
 export function analyzeTaxForms(forms: any[]): Finding[] {
   const findings: Finding[] = [];

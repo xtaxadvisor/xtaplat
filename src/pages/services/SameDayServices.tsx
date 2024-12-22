@@ -93,7 +93,7 @@ export default function SameDayServices() {
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Button
-          variant="ghost"
+          variant="outline"
           icon={ArrowLeft}
           onClick={() => navigate('/')}
           className="mb-8"
@@ -117,7 +117,7 @@ export default function SameDayServices() {
               <div className="p-6">
                 <div className="flex items-center mb-4">
                   <div className="p-2 bg-blue-50 rounded-lg">
-                    <service.icon className="h-6 w-6 text-blue-600" />
+                    {React.createElement(service.icon as React.ElementType, { className: "h-6 w-6 text-blue-600" })}
                   </div>
                   <h3 className="ml-3 text-xl font-semibold text-gray-900">{service.title}</h3>
                 </div>

@@ -12,7 +12,7 @@ export function createErrorResponse(
     statusCode,
     body: JSON.stringify({
       error: message,
-      ...(details && { details })
+      ...(typeof details === 'object' && details !== null ? { details } : {})
     })
   };
 }

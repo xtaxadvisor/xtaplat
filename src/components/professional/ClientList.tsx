@@ -81,7 +81,8 @@ export function ClientList() {
             </div>
             <div className="flex items-center space-x-4">
               <Filter className="h-5 w-5 text-gray-400" />
-              <select className="border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+              <label htmlFor="statusFilter" className="sr-only">Filter by status</label>
+              <select id="statusFilter" className="border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 <option>All Status</option>
                 <option>Active</option>
                 <option>Inactive</option>
@@ -156,7 +157,7 @@ export function ClientList() {
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <button className="text-gray-400 hover:text-gray-500">
+                      <button className="text-gray-400 hover:text-gray-500" title="More actions">
                         <MoreVertical className="h-5 w-5" />
                       </button>
                     </td>

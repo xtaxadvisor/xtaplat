@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Shield, Users, Database, TrendingUp, MessageSquare, BookOpen } from 'lucide-react';
+import { Shield, Users, Database, TrendingUp, MessageSquare, BookOpen, LucideProps } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNotificationStore } from '../../lib/store';
@@ -8,7 +8,7 @@ import { useNotificationStore } from '../../lib/store';
 interface PortalButtonProps {
   title: string;
   description: string;
-  icon: React.ComponentType;
+  icon: React.ComponentType<LucideProps>;
   path: string;
   requiredRole?: string[];
 }

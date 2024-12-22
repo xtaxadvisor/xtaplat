@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUpRight, ArrowDownRight } from 'lucide-react';
+import styles from './PerformanceMetrics.module.css';
 
 interface MetricData {
   label: string;
@@ -29,10 +30,9 @@ export function PerformanceMetrics({ data }: PerformanceMetricsProps) {
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            <div className="w-48 bg-gray-200 rounded-full h-2">
               <div
-                className="bg-blue-600 h-2 rounded-full"
-                style={{ width: `${(metric.value / metric.target) * 100}%` }}
+                className={`progressBar`}
+                style={{ '--progress-width': `${(metric.value / metric.target) * 100}%` } as React.CSSProperties}
               />
             </div>
             <span className={`flex items-center text-sm ${
@@ -46,7 +46,6 @@ export function PerformanceMetrics({ data }: PerformanceMetricsProps) {
               {Math.abs(metric.change)}%
             </span>
           </div>
-        </div>
       ))}
     </div>
   );
