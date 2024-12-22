@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Search, Filter, Play, Clock, DollarSign, Tag } from 'lucide-react';
+import { Search, Play, Clock, DollarSign, Tag } from 'lucide-react';
 import { Button } from '../../components/ui/Button';
-import { Input } from '../../components/ui/Input';
 import { Select } from '../../components/ui/Select';
 import { useNotificationStore } from '../../lib/store';
 
@@ -69,37 +68,36 @@ export default function VideoLibrary() {
     return matchesSearch && matchesCategory;
   });
 
-  const handlePurchase = (videoId: string) => {
-    addNotification('Video purchase feature coming soon!', 'info');
-  };
-
+const handlePurchase = (videoId: string) => {
+  addNotification(`Video with ID ${videoId} purchase feature coming soon!`, 'info');
+};
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Video Library</h1>
-          <div className="flex items-center space-x-4">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search videos..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-              />
-            </div>
-            <Select
-              options={[
-                { value: 'all', label: 'All Categories' },
-                { value: 'Tax Planning', label: 'Tax Planning' },
-                { value: 'Investment', label: 'Investment' }
-              ]}
-              value={selectedCategory}
-              onChange={setSelectedCategory}
-            />
-          </div>
-        </div>
+  <h1 className="text-3xl font-bold text-gray-900">Video Library</h1>
+  <div className="flex items-center space-x-4">
+    <div className="relative">
+      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+      <input
+        type="text"
+        placeholder="Search videos..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+      />
+    </div>
+    <Select
+      options={[
+        { value: 'all', label: 'All Categories' },
+        { value: 'Tax Planning', label: 'Tax Planning' },
+        { value: 'Investment', label: 'Investment' }
+      ]}
+      value={selectedCategory}
+      onChange={setSelectedCategory}
+    />
+  </div>
+</div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredVideos.map((video) => (

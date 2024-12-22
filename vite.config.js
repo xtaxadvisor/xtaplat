@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const vite_1 = require("vite");
@@ -66,3 +67,23 @@ exports.default = (0, vite_1.defineConfig)({
         }
     }
 });
+=======
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': '/src', // Alias for 'src' directory
+    },
+  },
+  define: {
+    'process.env': process.env, // Enable use of process.env
+  },
+  server: {
+    port: 5173, // Set the server to run on port 5173
+    open: true, // Automatically open browser on server start
+  },
+});
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c

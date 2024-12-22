@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+=======
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import React from 'react';
 import { Plus, Video } from 'lucide-react';
 import { ConsultationCard } from './ConsultationCard';
@@ -30,6 +33,7 @@ export function ConsultationList() {
         }
     };
     if (isLoading) {
+<<<<<<< HEAD
         return _jsx(LoadingSpinner, {});
     }
     const consultations = Array.isArray(consultation) ? consultation : [];
@@ -38,4 +42,52 @@ export function ConsultationList() {
                                     .map(consultation => (_jsx(ConsultationCard, { consultation: consultation, onCancel: () => handleCancel(consultation.id), onReschedule: () => handleReschedule(consultation.id) }, consultation.id))) })] }), _jsxs("div", { children: [_jsx("h2", { className: "text-lg font-medium text-gray-900 mb-4", children: "Past Consultations" }), _jsx("div", { className: "grid grid-cols-1 gap-6 lg:grid-cols-2", children: consultations
                                     .filter(c => new Date(c.startTime) <= new Date() || c.status === 'cancelled')
                                     .map(consultation => (_jsx(ConsultationCard, { consultation: consultation }, consultation.id))) })] })] })), _jsx(BookingModal, { isOpen: isBookingModalOpen, onClose: () => setIsBookingModalOpen(false), serviceType: "virtual-consulting" })] }));
+=======
+        return <LoadingSpinner />;
+    }
+    const consultations = Array.isArray(consultation) ? consultation : [];
+    return (<div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl font-bold text-gray-900">Virtual Consultations</h1>
+        <Button variant="primary" icon={Plus} onClick={() => setIsBookingModalOpen(true)}>
+          Schedule Consultation
+        </Button>
+      </div>
+
+      {consultations.length === 0 ? (<div className="text-center py-12 bg-white rounded-lg shadow">
+          <Video className="mx-auto h-12 w-12 text-gray-400"/>
+          <h3 className="mt-2 text-sm font-medium text-gray-900">No consultations</h3>
+          <p className="mt-1 text-sm text-gray-500">
+            Get started by scheduling your first consultation
+          </p>
+          <div className="mt-6">
+            <Button variant="primary" icon={Plus} onClick={() => setIsBookingModalOpen(true)}>
+              Schedule Consultation
+            </Button>
+          </div>
+        </div>) : (<div className="space-y-8">
+          {/* Upcoming Consultations */}
+          <div>
+            <h2 className="text-lg font-medium text-gray-900 mb-4">Upcoming Consultations</h2>
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              {consultations
+                .filter(c => new Date(c.startTime) > new Date() && c.status !== 'cancelled')
+                .map(consultation => (<ConsultationCard key={consultation.id} consultation={consultation} onCancel={() => handleCancel(consultation.id)} onReschedule={() => handleReschedule(consultation.id)}/>))}
+            </div>
+          </div>
+
+          {/* Past Consultations */}
+          <div>
+            <h2 className="text-lg font-medium text-gray-900 mb-4">Past Consultations</h2>
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              {consultations
+                .filter(c => new Date(c.startTime) <= new Date() || c.status === 'cancelled')
+                .map(consultation => (<ConsultationCard key={consultation.id} consultation={consultation}/>))}
+            </div>
+          </div>
+        </div>)}
+
+      <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} serviceType="virtual-consulting"/>
+    </div>);
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

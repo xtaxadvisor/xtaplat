@@ -1,17 +1,31 @@
+# Global settings for the build & deploy process
 [build]
-  command = "npm run build"
-  publish = "dist"
-  functions = "netlify/functions"
+  command = "npm run build"  # Build command
+  publish = "dist"           # Output directory
+  functions = "netlify/functions"  # Serverless functions (if any)
 
+  [build.environment]
+    VITE_API_URL = "https://www.protaxadvisors.tax"
+    VITE_ENV = "production"
+    OPENAI_API_KEY = "your-production-key"
+    NODE_ENV = "production"
+
+# Local development environment using Netlify Dev
+[dev]
+  command = "npm run dev"
+  port = 3000
+  targetPort = 5173  # Match Vite's default dev server port
+
+# Redirects for Single Page Application (SPA)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-[dev]
-  command = "npm run dev"
-  port = 3000
-  targetPort = 8888
-  publish = "dist"
-  autoLaunch = true
-  framework = "#custom"
+# Add CORS headers for API responses
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE"
+    Access-Control-Allow-Headers = "Content-Type"

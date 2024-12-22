@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
+=======
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import React from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { FileText, Video, Calendar, TrendingUp, BookOpen, Users, Settings, BarChart, Layout, Shield } from 'lucide-react';
@@ -44,6 +47,7 @@ export function PersonalizedTabs() {
     }, [tabs, activeTab]);
     if (!user)
         return null;
+<<<<<<< HEAD
     return (_jsxs("div", { className: "space-y-6", children: [_jsxs("div", { className: "bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-6 text-white", children: [_jsxs("h2", { className: "text-2xl font-bold", children: ["Welcome back, ", user.name, "!"] }), _jsxs("p", { className: "mt-1 text-blue-100", children: [user.role.charAt(0).toUpperCase() + user.role.slice(1), " Account"] })] }), _jsx("div", { className: "border-b border-gray-200", children: _jsx("nav", { className: "-mb-px flex space-x-8", children: tabs.map((tab) => (_jsxs("button", { onClick: () => setActiveTab(tab.id), className: `
                 group inline-flex items-center py-4 px-1 border-b-2 font-medium text-sm
                 ${activeTab === tab.id
@@ -58,4 +62,56 @@ export function PersonalizedTabs() {
                                     ? 'bg-blue-100 text-blue-600'
                                     : 'bg-gray-100 text-gray-900'}
                 `, children: tab.count })), tab.badge && (_jsx("span", { className: "ml-3 py-0.5 px-2.5 rounded-full text-xs font-medium bg-green-100 text-green-800", children: tab.badge }))] }, tab.id))) }) }), _jsx("div", { className: "mt-6", children: activeTab === 'tax-services' && (_jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6", children: _jsx("div", { className: "bg-white rounded-lg shadow p-6", children: _jsx("h3", { className: "text-lg font-medium text-gray-900", children: "Recent Tax Filings" }) }) })) })] }));
+=======
+    return (<div className="space-y-6">
+      {/* Welcome Banner */}
+      <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-6 text-white">
+        <h2 className="text-2xl font-bold">Welcome back, {user.name}!</h2>
+        <p className="mt-1 text-blue-100">
+          {user.role.charAt(0).toUpperCase() + user.role.slice(1)} Account
+        </p>
+      </div>
+
+      {/* Tabs Navigation */}
+      <div className="border-b border-gray-200">
+        <nav className="-mb-px flex space-x-8">
+          {tabs.map((tab) => (<button key={tab.id} onClick={() => setActiveTab(tab.id)} className={`
+                group inline-flex items-center py-4 px-1 border-b-2 font-medium text-sm
+                ${activeTab === tab.id
+                ? 'border-blue-500 text-blue-600'
+                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}
+              `}>
+              <tab.icon className={`
+                mr-2 h-5 w-5
+                ${activeTab === tab.id ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500'}
+              `}/>
+              <span>{tab.label}</span>
+              {tab.count !== undefined && (<span className={`
+                  ml-3 py-0.5 px-2.5 rounded-full text-xs font-medium
+                  ${activeTab === tab.id
+                    ? 'bg-blue-100 text-blue-600'
+                    : 'bg-gray-100 text-gray-900'}
+                `}>
+                  {tab.count}
+                </span>)}
+              {tab.badge && (<span className="ml-3 py-0.5 px-2.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                  {tab.badge}
+                </span>)}
+            </button>))}
+        </nav>
+      </div>
+
+      {/* Tab Content */}
+      <div className="mt-6">
+        {activeTab === 'tax-services' && (<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Tax Services Content */}
+            <div className="bg-white rounded-lg shadow p-6">
+              <h3 className="text-lg font-medium text-gray-900">Recent Tax Filings</h3>
+              {/* Add tax filing content */}
+            </div>
+          </div>)}
+        {/* Add other tab contents similarly */}
+      </div>
+    </div>);
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

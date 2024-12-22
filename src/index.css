@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 /* Mobile-first responsive design */
 html {
   font-size: 16px;

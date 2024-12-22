@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+=======
+import React from 'react';
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { Book, Video, Award, FileText } from 'lucide-react';
 import { formatTimeAgo } from '../../../utils/date';
 export function RecentActivities() {
@@ -32,5 +36,21 @@ export function RecentActivities() {
             icon: FileText
         }
     ];
+<<<<<<< HEAD
     return (_jsx("div", { className: "space-y-4", children: activities.map((activity) => (_jsxs("div", { className: "flex items-start space-x-3", children: [_jsx("div", { className: "flex-shrink-0", children: _jsx("div", { className: "h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center", children: _jsx(activity.icon, { className: "h-4 w-4 text-blue-600" }) }) }), _jsxs("div", { className: "flex-1 min-w-0", children: [_jsx("p", { className: "text-sm font-medium text-gray-900", children: activity.title }), _jsx("p", { className: "text-sm text-gray-500", children: formatTimeAgo(activity.timestamp) })] })] }, activity.id))) }));
+=======
+    return (<div className="space-y-4">
+      {activities.map((activity) => (<div key={activity.id} className="flex items-start space-x-3">
+          <div className="flex-shrink-0">
+            <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
+              <activity.icon className="h-4 w-4 text-blue-600"/>
+            </div>
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-medium text-gray-900">{activity.title}</p>
+            <p className="text-sm text-gray-500">{formatTimeAgo(activity.timestamp)}</p>
+          </div>
+        </div>))}
+    </div>);
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

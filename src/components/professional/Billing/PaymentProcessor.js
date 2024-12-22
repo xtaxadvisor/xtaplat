@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
+=======
+import React, { useState } from 'react';
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { CreditCard, DollarSign, AlertCircle } from 'lucide-react';
 import { Button } from '../../ui/Button';
 import { Input } from '../../ui/Input';
@@ -49,5 +53,50 @@ export function PaymentProcessor({ amount, onSuccess, onCancel }) {
         }
         return v;
     };
+<<<<<<< HEAD
     return (_jsxs("form", { onSubmit: handleSubmit, className: "space-y-6", children: [_jsx("div", { className: "bg-blue-50 p-4 rounded-lg", children: _jsxs("div", { className: "flex items-center", children: [_jsx(DollarSign, { className: "h-5 w-5 text-blue-500" }), _jsxs("span", { className: "ml-2 text-blue-700 font-medium", children: ["Amount to pay: $", amount.toFixed(2)] })] }) }), _jsxs("div", { className: "space-y-4", children: [_jsx(Input, { label: "Card Number", value: cardNumber, onChange: (e) => setCardNumber(formatCardNumber(e.target.value)), maxLength: 19, placeholder: "1234 5678 9012 3456", icon: CreditCard, required: true }), _jsxs("div", { className: "grid grid-cols-2 gap-4", children: [_jsx(Input, { label: "Expiry Date", value: expiryDate, onChange: (e) => setExpiryDate(formatExpiryDate(e.target.value)), maxLength: 5, placeholder: "MM/YY", required: true }), _jsx(Input, { label: "CVV", value: cvv, onChange: (e) => setCvv(e.target.value), maxLength: 4, type: "password", placeholder: "123", required: true })] })] }), _jsx("div", { className: "bg-yellow-50 p-4 rounded-lg", children: _jsxs("div", { className: "flex items-start", children: [_jsx(AlertCircle, { className: "h-5 w-5 text-yellow-500 mt-0.5" }), _jsxs("div", { className: "ml-3", children: [_jsx("h3", { className: "text-sm font-medium text-yellow-800", children: "Secure Payment" }), _jsx("p", { className: "mt-1 text-sm text-yellow-700", children: "Your payment information is encrypted and secure. We never store your full card details." })] })] }) }), _jsxs("div", { className: "flex justify-end space-x-3", children: [_jsx(Button, { type: "button", variant: "outline", onClick: onCancel, disabled: processing, children: "Cancel" }), _jsx(Button, { type: "submit", variant: "primary", disabled: processing, children: processing ? 'Processing...' : 'Pay Now' })] })] }));
+=======
+    return (<form onSubmit={handleSubmit} className="space-y-6">
+      <div className="bg-blue-50 p-4 rounded-lg">
+        <div className="flex items-center">
+          <DollarSign className="h-5 w-5 text-blue-500"/>
+          <span className="ml-2 text-blue-700 font-medium">
+            Amount to pay: ${amount.toFixed(2)}
+          </span>
+        </div>
+      </div>
+
+      <div className="space-y-4">
+        <Input label="Card Number" value={cardNumber} onChange={(e) => setCardNumber(formatCardNumber(e.target.value))} maxLength={19} placeholder="1234 5678 9012 3456" icon={CreditCard} required/>
+
+        <div className="grid grid-cols-2 gap-4">
+          <Input label="Expiry Date" value={expiryDate} onChange={(e) => setExpiryDate(formatExpiryDate(e.target.value))} maxLength={5} placeholder="MM/YY" required/>
+          <Input label="CVV" value={cvv} onChange={(e) => setCvv(e.target.value)} maxLength={4} type="password" placeholder="123" required/>
+        </div>
+      </div>
+
+      <div className="bg-yellow-50 p-4 rounded-lg">
+        <div className="flex items-start">
+          <AlertCircle className="h-5 w-5 text-yellow-500 mt-0.5"/>
+          <div className="ml-3">
+            <h3 className="text-sm font-medium text-yellow-800">
+              Secure Payment
+            </h3>
+            <p className="mt-1 text-sm text-yellow-700">
+              Your payment information is encrypted and secure. We never store your full card details.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-end space-x-3">
+        <Button type="button" variant="outline" onClick={onCancel} disabled={processing}>
+          Cancel
+        </Button>
+        <Button type="submit" variant="primary" disabled={processing}>
+          {processing ? 'Processing...' : 'Pay Now'}
+        </Button>
+      </div>
+    </form>);
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

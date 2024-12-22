@@ -9,23 +9,29 @@ export const discussionService = {
       let q = query(threadsCollection);
 
       if (filters?.category) {
+        q = query(threadsCollection, where('category', '==', filters.category));
         q = query(q, where('category', '==', filters.category));
       }
 
       if (filters?.location) {
+        q = query(threadsCollection, where('location', '==', filters.location));
         q = query(q, where('location', '==', filters.location));
       }
 
       if (filters?.tags) {
+<<<<<<< HEAD
+=======
+        q = query(threadsCollection, where('tags', 'array-contains-any', filters.tags));
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
         q = query(q, where('tags', 'array-contains-any', filters.tags));
       }
 
       // Add sorting based on filter preferences
       switch (filters?.sortBy) {
-        case 'popular':
+        case 'likes':
           q = query(q, orderBy('likes', 'desc'));
           break;
-        case 'unanswered':
+        case 'noReplies':
           q = query(q, where('replies', '==', 0));
           break;
         case 'recent':

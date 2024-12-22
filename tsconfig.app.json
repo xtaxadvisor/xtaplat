@@ -1,5 +1,7 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
+<<<<<<< HEAD
     "forceConsistentCasingInFileNames": true,  // Ensure consistent casing in file names
     "target": "ES2020",                        // Target ECMAScript version
     "useDefineForClassFields": true,           // Use "define" for class fields
@@ -34,4 +36,11 @@
       "path": "./tsconfig.node.json"           // Reference the node-specific configuration
     }
   ]
+=======
+    "module": "ESNext",
+    "target": "ES2020",
+    "jsx": "react-jsx"
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useEffect } from 'react';
+=======
+import React, { useState, useEffect } from 'react';
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { useVideoStream } from '../../../hooks/useVideoStream';
 import { useChat } from '../../../hooks/useChat';
 import { useScreenShare } from '../../../hooks/useScreenShare';
@@ -59,7 +63,13 @@ export function VirtualConsultation({ consultationId, onEnd }) {
         };
     }, [consultation, consultationId, updateConsultation, addNotification, navigate, user]);
     if (consultationLoading || streamLoading || !consultation) {
+<<<<<<< HEAD
         return (_jsx("div", { className: "flex items-center justify-center h-screen bg-gray-900", children: _jsx(LoadingSpinner, {}) }));
+=======
+        return (<div className="flex items-center justify-center h-screen bg-gray-900">
+        <LoadingSpinner />
+      </div>);
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
     }
     const handleEndMeeting = async () => {
         try {
@@ -73,5 +83,44 @@ export function VirtualConsultation({ consultationId, onEnd }) {
             addNotification('Failed to end meeting', 'error');
         }
     };
+<<<<<<< HEAD
     return (_jsxs("div", { className: "flex h-screen bg-gray-900", children: [_jsxs("div", { className: "flex-1 relative", children: [_jsx(VideoStream, { videoRef: videoRef }), _jsx(ScreenShare, { isSharing: isSharing, onStartShare: startScreenShare, onStopShare: stopScreenShare }), _jsx("div", { className: "absolute bottom-4 right-4 w-48 h-36 bg-black rounded-lg overflow-hidden", children: _jsx(VideoStream, { videoRef: videoRef, isSelfView: true }) }), _jsxs("div", { className: "absolute top-4 left-4 bg-black bg-opacity-50 rounded-lg p-4 text-white", children: [_jsx("h2", { className: "text-lg font-medium", children: consultation.type.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) }), _jsxs("p", { className: "text-sm opacity-75", children: [new Date(consultation.startTime).toLocaleTimeString(), " -", new Date(consultation.endTime).toLocaleTimeString()] })] }), _jsx(MeetingControls, { onShare: startScreenShare, onInvite: () => { }, onChat: () => setIsChatOpen(!isChatOpen), isChatOpen: isChatOpen }), _jsx(VideoControls, { isMuted: isMuted, isVideoEnabled: isVideoEnabled, onToggleMute: toggleMute, onToggleVideo: toggleVideo, onEndCall: handleEndMeeting })] }), isChatOpen && (_jsx("div", { className: "w-80 border-l border-gray-800", children: _jsx(ChatPanel, { messages: messages, onSendMessage: sendMessage, isLoading: chatLoading, isSending: isSending }) }))] }));
+=======
+    return (<div className="flex h-screen bg-gray-900">
+      <div className="flex-1 relative">
+        {/* Main video stream */}
+        <VideoStream videoRef={videoRef}/>
+        
+        {/* Screen share overlay */}
+        <ScreenShare isSharing={isSharing} onStartShare={startScreenShare} onStopShare={stopScreenShare}/>
+        
+        {/* Self view */}
+        <div className="absolute bottom-4 right-4 w-48 h-36 bg-black rounded-lg overflow-hidden">
+          <VideoStream videoRef={videoRef} isSelfView/>
+        </div>
+
+        {/* Meeting info overlay */}
+        <div className="absolute top-4 left-4 bg-black bg-opacity-50 rounded-lg p-4 text-white">
+          <h2 className="text-lg font-medium">
+            {consultation.type.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+          </h2>
+          <p className="text-sm opacity-75">
+            {new Date(consultation.startTime).toLocaleTimeString()} - 
+            {new Date(consultation.endTime).toLocaleTimeString()}
+          </p>
+        </div>
+
+        {/* Meeting controls */}
+        <MeetingControls onShare={startScreenShare} onInvite={() => { }} onChat={() => setIsChatOpen(!isChatOpen)} isChatOpen={isChatOpen}/>
+
+        {/* Video controls */}
+        <VideoControls isMuted={isMuted} isVideoEnabled={isVideoEnabled} onToggleMute={toggleMute} onToggleVideo={toggleVideo} onEndCall={handleEndMeeting}/>
+      </div>
+
+      {/* Chat panel */}
+      {isChatOpen && (<div className="w-80 border-l border-gray-800">
+          <ChatPanel messages={messages} onSendMessage={sendMessage} isLoading={chatLoading} isSending={isSending}/>
+        </div>)}
+    </div>);
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

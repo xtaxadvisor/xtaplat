@@ -2,7 +2,11 @@ import React from 'react';
 import { Video } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { useAuth } from '../../contexts/AuthContext';
+<<<<<<< HEAD
 import styles from './Hero.module.css';
+=======
+import { AIAssistantWidget } from '../ai/AIAssistantWidget';
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { useNavigate } from 'react-router-dom';
 
 export function Hero() {
@@ -57,7 +61,8 @@ export function Hero() {
             )}
           </div>
         </div>
-      </div>
-    </div>
+    <AIAssistantWidget />
+  </div>
+</div>
   );
 }

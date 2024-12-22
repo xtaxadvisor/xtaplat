@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { jsx as _jsx } from "react/jsx-runtime";
+=======
+import React from 'react';
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { Line } from 'react-chartjs-2';
 import { formatDate } from '../../../../utils/date';
 export function TimeSeriesChart({ series, height = 300 }) {
@@ -39,5 +43,11 @@ export function TimeSeriesChart({ series, height = 300 }) {
             }
         }
     };
+<<<<<<< HEAD
     return (_jsx("div", { style: { height }, children: _jsx(Line, { data: data, options: options }) }));
+=======
+    return (<div style={{ height }}>
+      <Line data={data} options={options}/>
+    </div>);
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

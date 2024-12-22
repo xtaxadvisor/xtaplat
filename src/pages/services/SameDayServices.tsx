@@ -1,21 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
-  FileText, 
-  Stamp, 
-  Building2, 
   FileCheck, 
-  DollarSign, 
-  BookOpen,
   ArrowLeft,
   Clock,
-  ClipboardList,
-  Calculator,
-  Users,
-  BarChart,
-  Briefcase,
-  BookIcon,
-  FileSpreadsheet,
   FileSignature,
   Building,
   FileCode

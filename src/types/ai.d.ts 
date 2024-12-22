@@ -1,0 +1,7 @@
+// types/ai.d.ts
+export interface AIContext {
+  // define properties here
+  id: string;
+  name: string;
+  description: string;
+}
