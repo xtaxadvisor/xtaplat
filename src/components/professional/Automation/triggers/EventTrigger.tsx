@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar, Clock, Bell } from 'lucide-react';
 import { Select } from '../../../ui/Select';
+import { Input } from '../../../ui/Input';
 import type { TriggerConfig } from '../../../../types/automation';
 
 interface EventTriggerProps {
@@ -19,7 +20,7 @@ export function EventTrigger({ config, onChange }: EventTriggerProps) {
           { value: 'condition', label: 'Condition' }
         ]}
         value={config.type}
-        onChange={(value) => onChange({ ...config, type: value })}
+        onChange={(value) => onChange({ ...config, type: value as 'schedule' | 'event' | 'condition' })}
       />
 
       {config.type === 'schedule' && (
@@ -28,13 +29,13 @@ export function EventTrigger({ config, onChange }: EventTriggerProps) {
             type="date"
             label="Start Date"
             value={config.startDate}
-            onChange={(e) => onChange({ ...config, startDate: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange({ ...config, startDate: e.target.value })}
           />
           <Input
             type="time"
             label="Start Time"
             value={config.startTime}
-            onChange={(e) => onChange({ ...config, startTime: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange({ ...config, startTime: e.target.value })}
           />
         </div>
       )}

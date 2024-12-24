@@ -44,7 +44,7 @@ export function InvestorLayout({ children }: { children: React.ReactNode }) {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <Button
-                variant="ghost"
+                variant="outline"
                 onClick={() => navigate('/')}
                 icon={ArrowLeft}
                 className="mr-4"
@@ -57,7 +57,7 @@ export function InvestorLayout({ children }: { children: React.ReactNode }) {
               <span className="text-gray-700">Welcome, {user?.name}</span>
               <Button 
                 onClick={handleLogout}
-                variant="ghost"
+                variant="outline"
                 className="text-gray-600 hover:text-gray-900"
                 icon={LogOut}
               >

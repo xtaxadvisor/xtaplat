@@ -26,7 +26,7 @@ export function MessageItem({ message }: MessageItemProps) {
           <div key={index} className="mt-2 flex items-center space-x-2">
             <FileText className="h-4 w-4" />
             <span className="text-sm">{attachment}</span>
-            <button className="text-sm hover:opacity-75">
+            <button className="text-sm hover:opacity-75" title="Download attachment">
               <Download className="h-4 w-4" />
             </button>
           </div>

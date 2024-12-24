@@ -19,7 +19,10 @@ export const discussionService = {
       }
 
       if (filters?.tags) {
+<<<<<<< HEAD
+=======
         q = query(threadsCollection, where('tags', 'array-contains-any', filters.tags));
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
         q = query(q, where('tags', 'array-contains-any', filters.tags));
       }
 

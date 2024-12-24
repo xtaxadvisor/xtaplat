@@ -1,34 +1,17 @@
 {
   "compilerOptions": {
-    "target": "ES2024",
-    "lib": ["ES2024"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Enhanced Type Checking */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-    "noImplicitOverride": true,
-
-    /* Latest TypeScript 5.6 Features */
-    "verbatimModuleSyntax": true,
-    "allowUnusedLabels": false,
-    "allowUnreachableCode": false,
-    "checkJs": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "target": "ES2020",                         // Modern target for Node.js
+    "lib": ["DOM", "ES2022"],                   // Libraries to include
+    "module": "CommonJS",                       // Node.js-compatible module system
+    "moduleResolution": "node",                 // Resolve modules as Node.js does
+    "composite": true,                          // Required for project references
+    "noEmit": false,                            // Allow emitting files
+    "skipLibCheck": true,                       // Skip type-checking for libraries
+    "strict": true,                             // Enable strict mode
+    "noUnusedLocals": true,                     // Warn on unused variables
+    "noUnusedParameters": true,                 // Warn on unused parameters
+    "noFallthroughCasesInSwitch": true,         // Prevent unintentional fallthrough
+    "forceConsistentCasingInFileNames": true    // Ensure consistent file name casing
   },
-  "include": ["vite.config.ts"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "vite.config.ts"]
 }

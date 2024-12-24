@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useState } from 'react';
+=======
 import React, { useState } from 'react';
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { Search, Filter, Play, Clock, DollarSign, Tag } from 'lucide-react';
 import { Button } from '../ui/Button';
 const sampleVideos = [
@@ -73,6 +78,9 @@ export function VideoLibrary() {
         // Implement payment gateway integration
         console.log('Purchasing video:', videoId);
     };
+<<<<<<< HEAD
+    return (_jsxs("div", { className: "space-y-6", children: [_jsxs("div", { className: "flex justify-between items-center", children: [_jsx("h2", { className: "text-2xl font-bold text-gray-900", children: "Business Video Classes" }), _jsxs("div", { className: "flex items-center space-x-4", children: [_jsxs("div", { className: "relative", children: [_jsx(Search, { className: "absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" }), _jsx("input", { type: "text", placeholder: "Search videos...", value: searchTerm, onChange: (e) => setSearchTerm(e.target.value), className: "pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" })] }), _jsxs("div", { className: "flex items-center space-x-2", children: [_jsx(Filter, { className: "h-5 w-5 text-gray-400" }), _jsx("select", { value: selectedCategory, onChange: (e) => setSelectedCategory(e.target.value), className: "border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500", children: categories.map(category => (_jsx("option", { value: category, children: category === 'all' ? 'All Categories' : category }, category))) })] })] })] }), _jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6", children: filteredVideos.map(video => (_jsxs("div", { className: "bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow", children: [_jsxs("div", { className: "relative aspect-w-16 aspect-h-9", children: [_jsx("img", { src: video.thumbnail, alt: video.title, className: "w-full h-full object-cover" }), _jsx("div", { className: "absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity", children: _jsx(Play, { className: "h-16 w-16 text-white" }) })] }), _jsxs("div", { className: "p-6", children: [_jsx("h3", { className: "text-xl font-semibold text-gray-900 mb-2", children: video.title }), _jsx("p", { className: "text-gray-600 mb-4", children: video.description }), _jsxs("div", { className: "flex items-center justify-between mb-4", children: [_jsxs("div", { className: "flex items-center text-gray-500", children: [_jsx(Clock, { className: "h-5 w-5 mr-1" }), video.duration] }), _jsxs("div", { className: "text-xl font-bold text-blue-600", children: ["$", video.price] })] }), _jsxs("div", { className: "mb-4", children: [_jsxs("p", { className: "text-sm text-gray-500 mb-2", children: ["Instructor: ", video.instructor] }), _jsx("div", { className: "flex flex-wrap gap-2", children: video.tags.map((tag, index) => (_jsxs("span", { className: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800", children: [_jsx(Tag, { className: "h-3 w-3 mr-1" }), tag] }, index))) })] }), _jsx(Button, { variant: "primary", className: "w-full", onClick: () => handleBuyNow(video.id), icon: DollarSign, children: "Buy Now" })] })] }, video.id))) })] }));
+=======
     return (<div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold text-gray-900">Business Video Classes</h2>
@@ -131,4 +139,5 @@ export function VideoLibrary() {
           </div>))}
       </div>
     </div>);
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

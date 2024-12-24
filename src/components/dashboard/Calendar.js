@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useState } from 'react';
+=======
 import React, { useState } from 'react';
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { ChevronLeft, ChevronRight, Plus, Clock, Users, Video, MapPin } from 'lucide-react';
 import { Button } from '../ui/Button';
 export function Calendar() {
@@ -50,6 +55,13 @@ export function Calendar() {
         const dateStr = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
         return events.filter(event => event.date === dateStr);
     };
+<<<<<<< HEAD
+    return (_jsxs("div", { className: "space-y-6", children: [_jsxs("div", { className: "flex justify-between items-center", children: [_jsxs("div", { className: "flex items-center space-x-4", children: [_jsx("h1", { className: "text-2xl font-bold text-gray-900", children: "Calendar" }), _jsxs("div", { className: "flex items-center space-x-2", children: [_jsx(Button, { variant: "outline", icon: ChevronLeft }), _jsx("span", { className: "text-lg font-medium", children: currentDate.toLocaleString('default', { month: 'long', year: 'numeric' }) }), _jsx(Button, { variant: "outline", icon: ChevronRight })] })] }), _jsx(Button, { variant: "primary", icon: Plus, children: "New Event" })] }), _jsxs("div", { className: "flex gap-6", children: [_jsx("div", { className: "flex-1", children: _jsx("div", { className: "bg-white rounded-lg shadow", children: _jsxs("div", { className: "grid grid-cols-7 gap-px bg-gray-200", children: [weekDays.map(day => (_jsx("div", { className: "bg-gray-50 p-2 text-center text-sm font-medium text-gray-500", children: day }, day))), calendarDays.map((day, index) => (_jsxs("div", { className: `bg-white p-2 min-h-[100px] ${day.isCurrentMonth ? 'text-gray-900' : 'text-gray-400'}`, children: [_jsx("div", { className: "font-medium mb-1", children: day.day || '' }), day.isCurrentMonth && day.day > 0 && getEventsForDate(day.day).map(event => (_jsx("div", { className: `text-xs p-1 mb-1 rounded ${event.type === 'meeting'
+                                                    ? 'bg-blue-100 text-blue-800'
+                                                    : event.type === 'deadline'
+                                                        ? 'bg-red-100 text-red-800'
+                                                        : 'bg-yellow-100 text-yellow-800'}`, children: event.title }, event.id)))] }, index)))] }) }) }), _jsx("div", { className: "w-80", children: _jsxs("div", { className: "bg-white rounded-lg shadow p-6", children: [_jsx("h2", { className: "text-lg font-medium text-gray-900 mb-4", children: "Upcoming Events" }), _jsx("div", { className: "space-y-4", children: events.map(event => (_jsxs("div", { className: "border-l-4 border-blue-500 pl-4 py-2", children: [_jsx("h3", { className: "font-medium text-gray-900", children: event.title }), _jsxs("div", { className: "mt-1 space-y-1", children: [_jsxs("div", { className: "flex items-center text-sm text-gray-500", children: [_jsx(Clock, { className: "h-4 w-4 mr-1" }), event.time] }), event.participants && (_jsxs("div", { className: "flex items-center text-sm text-gray-500", children: [_jsx(Users, { className: "h-4 w-4 mr-1" }), event.participants.join(', ')] })), event.isVirtual && (_jsxs("div", { className: "flex items-center text-sm text-gray-500", children: [_jsx(Video, { className: "h-4 w-4 mr-1" }), "Virtual Meeting"] })), event.location && (_jsxs("div", { className: "flex items-center text-sm text-gray-500", children: [_jsx(MapPin, { className: "h-4 w-4 mr-1" }), event.location] }))] })] }, event.id))) })] }) })] })] }));
+=======
     return (<div className="space-y-6">
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-4">
@@ -118,4 +130,5 @@ export function Calendar() {
         </div>
       </div>
     </div>);
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

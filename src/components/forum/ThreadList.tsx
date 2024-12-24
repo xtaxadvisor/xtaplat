@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MessageSquare, ThumbsUp, Clock, Tag } from 'lucide-react';
-import { useThreads } from '../../hooks/useThreads';
+import { useThreads } from '../../hooks/useThreads'; // Ensure this path is correct or update it to the correct path
 import { LoadingSpinner } from '../ui/LoadingSpinner';
 import { formatTimeAgo } from '../../utils/date';
 
@@ -51,7 +51,7 @@ export function ThreadList() {
               {thread.likes}
             </div>
             <div className="flex items-center space-x-2">
-              {thread.tags.map((tag) => (
+              {thread.tags.map((tag: string) => (
                 <span
                   key={tag}
                   className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800"

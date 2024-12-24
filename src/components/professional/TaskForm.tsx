@@ -15,7 +15,13 @@ interface TaskFormProps {
 }
 
 export function TaskForm({ onSubmit, onCancel }: TaskFormProps) {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    title: string;
+    description: string;
+    dueDate: string;
+    priority: 'high' | 'medium' | 'low';
+    assignedTo?: string;
+  }>({
     title: '',
     description: '',
     dueDate: '',
@@ -60,7 +66,7 @@ export function TaskForm({ onSubmit, onCancel }: TaskFormProps) {
           { value: 'high', label: 'High' }
         ]}
         value={formData.priority}
-        onChange={(value) => setFormData({ ...formData, priority: value })}
+        onChange={(value) => setFormData({ ...formData, priority: value as 'high' | 'medium' | 'low' })}
       />
 
       <Input

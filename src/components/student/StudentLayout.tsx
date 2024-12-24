@@ -43,7 +43,7 @@ export function StudentLayout({ children }: { children: React.ReactNode }) {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <Button
-                variant="ghost"
+                variant="outline"
                 onClick={() => navigate('/')}
                 icon={ArrowLeft}
                 className="mr-4"
@@ -53,7 +53,7 @@ export function StudentLayout({ children }: { children: React.ReactNode }) {
               <span className="text-xl font-bold text-blue-600">Student Portal</span>
             </div>
             <div className="flex items-center space-x-4">
-              <button className="text-gray-500 hover:text-gray-700">
+              <button className="text-gray-500 hover:text-gray-700" title="Notifications">
                 <Bell className="h-6 w-6" />
               </button>
               <div className="relative group">

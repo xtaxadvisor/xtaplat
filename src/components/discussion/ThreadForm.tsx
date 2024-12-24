@@ -85,8 +85,9 @@ export function ThreadForm({ onSubmit, onCancel, isSubmitting }: ThreadFormProps
       />
 
       <div>
-        <label className="block text-sm font-medium text-gray-700">Category</label>
+        <label htmlFor="category" className="block text-sm font-medium text-gray-700">Category</label>
         <select
+          id="category"
           value={formData.category}
           onChange={(e) => setFormData({ ...formData, category: e.target.value as ThreadCategory })}
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
@@ -129,6 +130,7 @@ export function ThreadForm({ onSubmit, onCancel, isSubmitting }: ThreadFormProps
                   type="button"
                   onClick={() => handleRemoveTag(tag)}
                   className="ml-1 text-blue-600 hover:text-blue-500"
+                  title="Remove tag"
                 >
                   <X className="h-4 w-4" />
                 </button>

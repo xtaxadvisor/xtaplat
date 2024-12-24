@@ -26,7 +26,7 @@ export function ConsultationLayout({ children }: ConsultationLayoutProps) {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <Button
-                variant="ghost"
+                variant="outline"
                 onClick={() => navigate('/')}
                 icon={ArrowLeft}
                 className="mr-4"

@@ -2,7 +2,11 @@ import React from 'react';
 import { Video } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { useAuth } from '../../contexts/AuthContext';
+<<<<<<< HEAD
+import styles from './Hero.module.css';
+=======
 import { AIAssistantWidget } from '../ai/AIAssistantWidget';
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { useNavigate } from 'react-router-dom';
 
 export function Hero() {
@@ -30,12 +34,11 @@ export function Hero() {
             <span className="text-gradient">Made Simple</span>
           </h1>
           
-          <p className="mt-6 max-w-2xl mx-auto text-xl text-gray-500 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
+          <p className="mt-6 max-w-2xl mx-auto text-xl text-gray-500 animate-fadeIn delay-200">
             Expert tax and financial advisory services tailored to your needs.
             Join thousands of satisfied clients in achieving their financial goals.
           </p>
-
-          <div className="mt-10 flex flex-wrap justify-center gap-4 animate-fadeIn" style={{ animationDelay: '0.4s' }}>
+          <div className={`mt-10 flex flex-wrap justify-center gap-4 animate-fadeIn ${styles.delayedFadeIn}`}>
             <Button
               onClick={handleConsultation}
               variant="primary"

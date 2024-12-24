@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FileText, Download, Filter, Calendar } from 'lucide-react';
 import { Button } from '../ui/Button';
+import styles from './Reports.module.css';
 import { Select } from '../ui/Select';
 import { RevenueChart } from './charts/RevenueChart';
 import { ClientDistributionChart } from './charts/ClientDistributionChart';
@@ -45,8 +46,8 @@ export function Reports() {
                   { value: 'performance', label: 'Performance Reports' }
                 ]}
                 value={reportType}
-                onChange={setReportType}
-              />
+                  onChange={setReportType}
+                />
             </div>
           </div>
 
@@ -137,12 +138,10 @@ export function Reports() {
                       <div key={index} className="flex items-center justify-between">
                         <span className="text-sm text-gray-600">{metric.name}</span>
                         <div className="flex items-center space-x-4">
-                          <div className="w-32 bg-gray-200 rounded-full h-2">
                             <div
-                              className="bg-blue-600 h-2 rounded-full"
+                              className={`metric-bar w-${metric.score}`}
                               style={{ width: `${metric.score}%` }}
                             />
-                          </div>
                           <span className="text-sm font-medium text-gray-900">
                             {metric.score}%
                           </span>

@@ -70,12 +70,7 @@ export function ConsultationCard({
               Virtual Meeting
             </div>
           )}
-          {consultation.location && (
-            <div className="flex items-center text-sm text-gray-500">
-              <MapPin className="h-4 w-4 mr-1" />
-              {consultation.location}
-            </div>
-          )}
+          {/* consultation.location is not defined in the Consultation type */}
         </div>
 
         {isUpcoming && consultation.status !== 'cancelled' && (

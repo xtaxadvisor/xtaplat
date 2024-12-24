@@ -17,8 +17,8 @@ import { useNotificationStore } from '../../lib/store';
 interface SettingsSection {
   id: string;
   title: string;
-  icon: React.ComponentType;
-}
+  icon: React.ComponentType<{ className?: string }>;
+};
 
 export function Settings() {
   const { user } = useAuth();
@@ -56,8 +56,7 @@ export function Settings() {
       addNotification('Failed to update settings', 'error');
     } finally {
       setLoading(false);
-    }
-  };
+  }
 
   const renderSection = () => {
     switch (activeSection) {
@@ -70,6 +69,7 @@ export function Settings() {
                 icon={User}
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                placeholder="Enter your full name"
               />
               <Input
                 label="Email"
@@ -77,19 +77,24 @@ export function Settings() {
                 icon={Mail}
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                placeholder="Enter your email"
               />
               <Input
                 label="Phone Number"
                 icon={Smartphone}
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                placeholder="Enter your phone number"
               />
               <div>
-                <label className="block text-sm font-medium text-gray-700">Language</label>
+                <label htmlFor="language" className="block text-sm font-medium text-gray-700">Language</label>
+                <label htmlFor="language" className="block text-sm font-medium text-gray-700">Language</label>
                 <select
+                  id="language"
                   value={formData.language}
                   onChange={(e) => setFormData({ ...formData, language: e.target.value })}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  title="Select your language"
                 >
                   <option value="en">English</option>
                   <option value="es">Spanish</option>
@@ -109,17 +114,19 @@ export function Settings() {
                 <Input
                   type="password"
                   label="Current Password"
-                  icon={Lock}
+                  placeholder="Enter your current password"
                 />
                 <Input
                   type="password"
                   label="New Password"
                   icon={Lock}
+                  placeholder="Enter your new password"
                 />
                 <Input
                   type="password"
                   label="Confirm New Password"
                   icon={Lock}
+                  placeholder="Confirm your new password"
                 />
               </form>
             </div>
@@ -137,11 +144,12 @@ export function Settings() {
                     checked={formData.twoFactorAuth}
                     onChange={(e) => setFormData({ ...formData, twoFactorAuth: e.target.checked })}
                     className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    title="Enable Two-Factor Authentication"
                   />
                 </div>
               </div>
-            </div>
           </div>
+        </div>
         );
 
       case 'notifications':
@@ -196,9 +204,9 @@ export function Settings() {
             <div className="bg-white p-6 rounded-lg shadow">
               <h3 className="text-lg font-medium text-gray-900 mb-4">Display Settings</h3>
               <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Timezone</label>
+                  <label htmlFor="timezone" className="block text-sm font-medium text-gray-700">Timezone</label>
                   <select
+                    id="timezone"
                     value={formData.timezone}
                     onChange={(e) => setFormData({ ...formData, timezone: e.target.value })}
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
@@ -207,26 +215,74 @@ export function Settings() {
                     <option value="EST">Eastern Time</option>
                     <option value="PST">Pacific Time</option>
                   </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Date Format</label>
+                  <label htmlFor="date-format" className="block text-sm font-medium text-gray-700">Date Format</label>
                   <select
+                    id="date-format"
+                    title="Select date format"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                   >
                     <option>MM/DD/YYYY</option>
                     <option>DD/MM/YYYY</option>
                     <option>YYYY-MM-DD</option>
                   </select>
+                        <option>YYYY-MM-DD</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+            );
+    
+        }
+      }
+    
+      return (
+        <div className="space-y-6">
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
+            <Button
+              variant="primary"
+              icon={Save}
+              onClick={handleSubmit}
+              disabled={loading}
+            >
+              {loading ? 'Saving...' : 'Save Changes'}
+            </Button>
+          </div>
+    
+          <div className="flex gap-6">
+            <div className="w-64">
+              <nav className="space-y-1">
+                {sections.map((section: SettingsSection) => (
+                  <button
+                    key={section.id}
+                    onClick={() => setActiveSection(section.id)}
+                    className={`w-full flex items-center px-3 py-2 text-sm font-medium rounded-md ${
+                      activeSection === section.id
+                        ? 'bg-blue-50 text-blue-600'
+                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                    }`}
+                  >
+                    <section.icon className={`mr-3 h-5 w-5 ${
+                      activeSection === section.id ? 'text-blue-600' : 'text-gray-400'
+                    }`} />
+                    {section.title}
+                  </button>
+                ))}
+              </nav>
+            </div>
+    
+            <div className="flex-1">
+              <div className="bg-white rounded-lg shadow">
+                <div className="p-6">
+                  {renderSection()}
                 </div>
               </div>
             </div>
           </div>
-        );
-
-      default:
-        return null;
+        </div>
+      );
     }
-  };
+  }
 
   return (
     <div className="space-y-6">
@@ -245,7 +301,7 @@ export function Settings() {
       <div className="flex gap-6">
         <div className="w-64">
           <nav className="space-y-1">
-            {sections.map((section) => (
+            {sections.map((section: SettingsSection) => (
               <button
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}

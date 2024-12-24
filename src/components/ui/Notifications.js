@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useEffect } from 'react';
+=======
 import React, { useEffect } from 'react';
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { useNotificationStore } from '../../lib/store';
 import { X } from 'lucide-react';
 export function Notifications() {
@@ -11,6 +16,13 @@ export function Notifications() {
             return () => clearTimeout(timer);
         });
     }, [notifications, removeNotification]);
+<<<<<<< HEAD
+    return (_jsx("div", { className: "fixed bottom-4 right-4 z-50 space-y-2", children: notifications.map((notification) => (_jsxs("div", { className: `p-4 rounded-lg shadow-lg flex items-center justify-between ${notification.type === 'success'
+                ? 'bg-green-500'
+                : notification.type === 'error'
+                    ? 'bg-red-500'
+                    : 'bg-blue-500'} text-white`, children: [_jsx("span", { children: notification.message }), _jsx("button", { onClick: () => removeNotification(notification.id), className: "ml-4 text-white hover:text-gray-200", children: _jsx(X, { className: "h-4 w-4" }) })] }, notification.id))) }));
+=======
     return (<div className="fixed bottom-4 right-4 z-50 space-y-2">
       {notifications.map((notification) => (<div key={notification.id} className={`p-4 rounded-lg shadow-lg flex items-center justify-between ${notification.type === 'success'
                 ? 'bg-green-500'
@@ -23,4 +35,5 @@ export function Notifications() {
           </button>
         </div>))}
     </div>);
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

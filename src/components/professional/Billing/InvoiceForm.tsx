@@ -141,7 +141,7 @@ export function InvoiceForm({ onSubmit, onCancel }: InvoiceFormProps) {
               {formData.items.length > 1 && (
                 <Button
                   type="button"
-                  variant="ghost"
+                  variant="outline"
                   size="sm"
                   icon={Trash2}
                   onClick={() => removeItem(index)}

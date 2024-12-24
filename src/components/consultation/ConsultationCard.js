@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+=======
 import React from 'react';
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { Calendar, Clock, Video, MapPin } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { formatDate, formatTime } from '../../utils/date';
@@ -25,6 +29,9 @@ export function ConsultationCard({ consultation, onCancel, onReschedule }) {
                 return 'bg-gray-100 text-gray-800';
         }
     };
+<<<<<<< HEAD
+    return (_jsx("div", { className: "bg-white rounded-lg shadow overflow-hidden", children: _jsxs("div", { className: "p-6", children: [_jsx("div", { className: "flex justify-between items-start", children: _jsxs("div", { children: [_jsx("h3", { className: "text-lg font-medium text-gray-900", children: consultation.type.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) }), _jsx("span", { className: `inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium mt-1 ${getStatusColor(consultation.status)}`, children: consultation.status.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) })] }) }), _jsxs("div", { className: "mt-4 space-y-3", children: [_jsxs("div", { className: "flex items-center text-sm text-gray-500", children: [_jsx(Calendar, { className: "h-4 w-4 mr-1" }), formatDate(consultation.startTime)] }), _jsxs("div", { className: "flex items-center text-sm text-gray-500", children: [_jsx(Clock, { className: "h-4 w-4 mr-1" }), formatTime(consultation.startTime), " - ", formatTime(consultation.endTime)] }), consultation.isVirtual && (_jsxs("div", { className: "flex items-center text-sm text-gray-500", children: [_jsx(Video, { className: "h-4 w-4 mr-1" }), "Virtual Meeting"] })), consultation.location && (_jsxs("div", { className: "flex items-center text-sm text-gray-500", children: [_jsx(MapPin, { className: "h-4 w-4 mr-1" }), consultation.location] }))] }), isUpcoming && consultation.status !== 'cancelled' && (_jsxs("div", { className: "mt-6 flex justify-end space-x-3", children: [canJoin && consultation.meetingLink && (_jsx(Button, { variant: "primary", onClick: handleJoinMeeting, icon: Video, children: "Join Meeting" })), _jsx(Button, { variant: "outline", size: "sm", onClick: onReschedule, children: "Reschedule" }), _jsx(Button, { variant: "outline", size: "sm", className: "text-red-600 hover:text-red-700", onClick: onCancel, children: "Cancel" })] }))] }) }));
+=======
     return (<div className="bg-white rounded-lg shadow overflow-hidden">
       <div className="p-6">
         <div className="flex justify-between items-start">
@@ -70,4 +77,5 @@ export function ConsultationCard({ consultation, onCancel, onReschedule }) {
           </div>)}
       </div>
     </div>);
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

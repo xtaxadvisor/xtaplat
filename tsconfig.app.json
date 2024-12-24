@@ -1,9 +1,46 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+<<<<<<< HEAD
+    "forceConsistentCasingInFileNames": true,  // Ensure consistent casing in file names
+    "target": "ES2020",                        // Target ECMAScript version
+    "useDefineForClassFields": true,           // Use "define" for class fields
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],  // Include libraries for DOM and ES features
+    "module": "ESNext",                        // Modern module system
+    "skipLibCheck": true,                      // Skip type checks on declaration files
+    "moduleResolution": "bundler",            // Resolve modules as in a bundler like Vite
+    "allowImportingTsExtensions": true,       // Allow importing TypeScript extensions
+    "resolveJsonModule": true,                // Enable JSON imports
+    "isolatedModules": true,                  // Ensure each file can be transpiled separately
+    "noEmit": true,                           // Prevent emitting files (for frontend projects)
+    "jsx": "react-jsx",                       // Support modern React JSX runtime
+    "strict": true,                           // Enable strict mode
+    "noUnusedLocals": true,                   // Warn about unused local variables
+    "noUnusedParameters": true,               // Warn about unused parameters
+    "noFallthroughCasesInSwitch": true,       // Prevent unintentional fallthrough in switch cases
+    "baseUrl": ".",                           // Set base directory for relative paths
+    "paths": {                                // Configure path aliases
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@pages/*": ["src/pages/*"],
+      "@utils/*": ["src/utils/*"],
+      "@services/*": ["src/services/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@contexts/*": ["src/contexts/*"],
+      "@types/*": ["src/types/*"]
+    }
+  },
+  "include": ["src"],                          // Include source files for compilation
+  "references": [                              // Reference external tsconfig files
+    {
+      "path": "./tsconfig.node.json"           // Reference the node-specific configuration
+    }
+  ]
+=======
     "module": "ESNext",
     "target": "ES2020",
     "jsx": "react-jsx"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"]
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

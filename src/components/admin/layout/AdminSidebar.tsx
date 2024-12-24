@@ -23,7 +23,7 @@ export function AdminSidebar({ menuItems, currentPath }: AdminSidebarProps) {
                   : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                 }`}
             >
-              <item.icon className={`mr-4 h-6 w-6 ${isActive ? 'text-red-600' : 'text-gray-400'}`} />
+              {React.createElement(item.icon, { className: `mr-4 h-6 w-6 ${isActive ? 'text-red-600' : 'text-gray-400'}` })}
               {item.title}
             </Link>
           );

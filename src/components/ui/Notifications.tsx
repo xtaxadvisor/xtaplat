@@ -30,6 +30,7 @@ export function Notifications() {
         >
           <span>{notification.message}</span>
           <button
+            title="Close notification"
             onClick={() => removeNotification(notification.id)}
             className="ml-4 text-white hover:text-gray-200"
           >

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { formatPercentage } from '../../../../utils/analytics/metrics';
+import styles from './MetricBreakdown.module.css';
 
 interface MetricBreakdownProps {
   data: Array<{
@@ -35,7 +36,7 @@ export function MetricBreakdown({ data, title }: MetricBreakdownProps) {
   return (
     <div className="bg-white rounded-lg p-6">
       <h3 className="text-lg font-medium text-gray-900 mb-4">{title}</h3>
-      <div className="relative" style={{ height: '240px' }}>
+      <div className={`relative ${styles.relative}`}>
         <Doughnut data={chartData} options={options} />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
@@ -48,10 +49,10 @@ export function MetricBreakdown({ data, title }: MetricBreakdownProps) {
         {data.map((item) => (
           <div key={item.label} className="flex items-center justify-between">
             <div className="flex items-center">
-              <div 
-                className="w-3 h-3 rounded-full mr-2"
+              <div
+                className={`${styles['color-indicator']}`}
                 style={{ backgroundColor: item.color }}
-              />
+              ></div>
               <span className="text-sm text-gray-600">{item.label}</span>
             </div>
             <span className="text-sm font-medium text-gray-900">

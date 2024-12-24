@@ -1,5 +1,6 @@
 import React from 'react';
 import { Users, Settings, FileText, Shield, TrendingUp, Calendar, CheckCircle, AlertCircle } from 'lucide-react';
+import styles from './AdminDashboard.module.css';
 import { Card } from '../ui/Card';
 
 export function AdminDashboard() {
@@ -72,7 +73,7 @@ export function AdminDashboard() {
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div
-                    className="bg-blue-600 h-2 rounded-full"
+                    className="metric-bar"
                     style={{ width: metric.value }}
                   />
                 </div>

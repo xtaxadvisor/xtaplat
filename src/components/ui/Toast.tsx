@@ -17,7 +17,7 @@ export function Toast({ message, type, onClose }: ToastProps) {
   return (
     <div className={`${bgColor} text-white px-6 py-4 rounded-lg shadow-lg flex items-center justify-between`}>
       <span>{message}</span>
-      <button onClick={onClose} className="ml-4 hover:opacity-75">
+      <button onClick={onClose} className="ml-4 hover:opacity-75" title="Close">
         <X className="h-4 w-4" />
       </button>
     </div>

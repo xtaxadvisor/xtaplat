@@ -20,9 +20,7 @@ export interface InvestmentThread {
 
 export const investmentForumService = {
   getThreads: (category?: string) => 
-    api.get<InvestmentThread[]>('/investment-forum/threads', {
-      params: { category }
-    }),
+    api.get<InvestmentThread[]>(`/investment-forum/threads${category ? `?category=${category}` : ''}`),
 
   getThreadById: (id: string) =>
     api.get<InvestmentThread>(`/investment-forum/threads/${id}`),

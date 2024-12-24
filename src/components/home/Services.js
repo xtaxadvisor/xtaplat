@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useState } from 'react';
+=======
 import React, { useState } from 'react';
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { ServiceCard } from '../booking/ServiceCard';
@@ -69,6 +74,9 @@ export function Services() {
         }
         setSelectedService(serviceTitle.toLowerCase().replace(/\s+/g, '-'));
     };
+<<<<<<< HEAD
+    return (_jsxs("section", { id: "services", className: "py-20 bg-gray-50", children: [_jsxs("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: [_jsxs("div", { className: "text-center", children: [_jsx("h2", { className: "text-3xl font-bold text-gray-900", children: "Our Services" }), _jsx("p", { className: "mt-4 text-xl text-gray-600", children: "Expert financial solutions tailored to your needs" })] }), _jsx("div", { className: "mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4", children: services.map((service) => (_jsx(ServiceCard, { title: service.title, description: service.description, price: service.price, duration: service.duration, features: service.features, popular: service.popular, onBook: () => handleBooking(service.title) }, service.title))) })] }), selectedService && (_jsx(BookingModal, { isOpen: true, onClose: () => setSelectedService(null), serviceType: selectedService }))] }));
+=======
     return (<section id="services" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
@@ -85,4 +93,5 @@ export function Services() {
 
       {selectedService && (<BookingModal isOpen={true} onClose={() => setSelectedService(null)} serviceType={selectedService}/>)}
     </section>);
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

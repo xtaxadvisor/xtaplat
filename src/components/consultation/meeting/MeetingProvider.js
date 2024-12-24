@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+import { jsx as _jsx } from "react/jsx-runtime";
+import { useState } from 'react';
+=======
 import React, { useState } from 'react';
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { VirtualConsultation } from './VirtualConsultation';
 import { MeetingPreview } from './MeetingPreview';
 import { useConsultation } from '../../../hooks/useConsultation';
@@ -48,7 +53,13 @@ export function MeetingProvider({ consultationId, onEnd }) {
         }
     };
     if (!isInMeeting) {
+<<<<<<< HEAD
+        return (_jsx(MeetingPreview, { onJoin: handleJoinMeeting, onCancel: onEnd }));
+    }
+    return (_jsx(VirtualConsultation, { consultationId: consultationId, onEnd: handleEndMeeting }));
+=======
         return (<MeetingPreview onJoin={handleJoinMeeting} onCancel={onEnd}/>);
     }
     return (<VirtualConsultation consultationId={consultationId} onEnd={handleEndMeeting}/>);
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+export {};
+=======
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { clientService } from '../services/api/client';
 import { useNotificationStore } from '../lib/store';
@@ -41,3 +44,4 @@ export function useClient(clientId) {
         deleteClient: deleteClientMutation.mutate,
     };
 }
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c

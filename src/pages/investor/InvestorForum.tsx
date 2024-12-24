@@ -56,7 +56,6 @@ export default function InvestorForum() {
             options={categories}
             value={selectedCategory}
             onChange={setSelectedCategory}
-            icon={Filter}
           />
         </div>
       </div>

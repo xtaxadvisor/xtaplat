@@ -11,11 +11,11 @@ import {
 } from 'lucide-react';
 import { Button } from '../../ui/Button';
 import { DocumentGrid } from './DocumentGrid';
-import { DocumentList } from './DocumentList';
+import { DocumentList } from './DocumentList'; // Ensure this path is correct or update it to the correct path
 import { DocumentUpload } from './DocumentUpload';
-import { DocumentFilters } from './DocumentFilters';
+import { DocumentFilters } from './DocumentFilters'; // Ensure this path is correct or update it to the correct path
 import { Modal } from '../../ui/Modal';
-import { useDocuments } from '../../../hooks/useDocuments';
+import { useDocuments } from '../../../../hooks/useDocuments';
 
 export function DocumentManager() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');

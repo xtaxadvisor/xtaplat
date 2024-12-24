@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+=======
 import React from 'react';
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { Users, UserPlus, UserMinus, Activity } from 'lucide-react';
 import { Card } from '../../ui/Card';
 import { LineChart } from '../charts/LineChart';
@@ -31,6 +35,9 @@ export function UserAnalytics() {
             icon: UserMinus
         }
     ];
+<<<<<<< HEAD
+    return (_jsxs("div", { className: "space-y-6", children: [_jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4", children: stats.map((stat) => (_jsx(Card, { title: stat.title, value: stat.value, description: stat.change, icon: stat.icon }, stat.title))) }), _jsxs("div", { className: "bg-white rounded-lg shadow p-6", children: [_jsx("h3", { className: "text-lg font-medium text-gray-900 mb-4", children: "User Growth" }), _jsx(LineChart, {})] })] }));
+=======
     return (<div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {stats.map((stat) => (<Card key={stat.title} title={stat.title} value={stat.value} description={stat.change} icon={stat.icon}/>))}
@@ -41,4 +48,5 @@ export function UserAnalytics() {
         <LineChart />
       </div>
     </div>);
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

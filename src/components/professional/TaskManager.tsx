@@ -126,6 +126,7 @@ export function TaskManager() {
                           <button
                             onClick={() => handleDeleteTask(task.id)}
                             className="text-gray-400 hover:text-red-600 transition-colors"
+                            title="Delete Task"
                           >
                             <Trash2 className="h-4 w-4" />
                           </button>

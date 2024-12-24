@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import { jsx as _jsx } from "react/jsx-runtime";
+=======
 import React from 'react';
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler);
@@ -37,5 +41,9 @@ export function ProgressChart() {
             }
         }
     };
+<<<<<<< HEAD
+    return _jsx(Line, { data: data, options: options });
+=======
     return <Line data={data} options={options}/>;
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

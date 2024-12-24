@@ -47,6 +47,11 @@ export class APIClient {
           return Promise.reject({ response: cachedResponse });
         }
 
+<<<<<<< HEAD
+  search: (query: string) => 
+    api.get<Client[]>(`/clients/search?query=${encodeURIComponent(query)}`),
+};
+=======
         return config;
       },
       (error) => Promise.reject(error)
@@ -99,3 +104,4 @@ export class APIClient {
 
 // Export singleton instance
 export const apiClient = APIClient.getInstance();
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c

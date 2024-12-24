@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ChartLegend.module.css';
 
 interface LegendItem {
   color: string;
@@ -26,11 +27,7 @@ export function ChartLegend({ items, position = 'bottom' }: ChartLegendProps) {
   return (
     <div className={getLayoutClass()}>
       {items.map((item, index) => (
-        <div key={index} className="flex items-center">
-          <div 
-            className="w-3 h-3 rounded-full mr-2"
-            style={{ backgroundColor: item.color }}
-          />
+        <div key={index} className={`flex items-center ${styles['legend-item']} ${styles[`legend-item-${index}`]}`}>
           <span className="text-sm text-gray-600">{item.label}</span>
           {item.value && (
             <span className="ml-2 text-sm font-medium text-gray-900">

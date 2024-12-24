@@ -33,6 +33,10 @@ export function estimateRemainingTime(
   );
 }
 
+interface ProcessingStep {
+  status: string;
+}
+
 export function calculateStepProgress(steps: ProcessingStep[]): number {
   const completedSteps = steps.filter(s => s.status === 'completed').length;
   return Math.round((completedSteps / steps.length) * 100);

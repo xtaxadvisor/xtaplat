@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+import { jsx as _jsx } from "react/jsx-runtime";
+import { createContext, useContext, useState, useEffect } from 'react';
+=======
 import React, { createContext, useContext, useState, useEffect } from 'react';
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { useNavigate } from 'react-router-dom';
 import { mockLogin, mockLogout, mockCheckAuth } from '../lib/mockAuth';
 import { useNotificationStore } from '../lib/store';
@@ -67,9 +72,13 @@ export function AuthProvider({ children }) {
         login,
         logout,
     };
+<<<<<<< HEAD
+    return (_jsx(AuthContext.Provider, { value: value, children: children }));
+=======
     return (<AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>);
+>>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }
 export function useAuth() {
     const context = useContext(AuthContext);

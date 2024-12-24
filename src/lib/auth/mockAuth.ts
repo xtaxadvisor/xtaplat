@@ -1,4 +1,4 @@
-import type { User, AuthCredentials, RegisterData } from './types';
+import type { User, AuthCredentials, RegisterData, UserRole } from './types';
 import { storeUser, clearStoredUser } from './storage';
 import { validateLoginCredentials, validateRegistrationData } from './validation';
 
@@ -89,9 +89,12 @@ export async function mockRegister(data: RegisterData): Promise<void> {
     throw new Error('Invalid role specified');
   }
 
-  const newUser = {
+  const newUser: User & { password: string } = {
     id: String(users.length + 1),
-    ...data,
+    name: data.name,
+    email: data.email,
+    password: data.password,
+    role: data.role as UserRole,
     isAdmin: false
   };
 

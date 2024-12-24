@@ -80,7 +80,9 @@ export function Documents() {
             </div>
             <div className="flex items-center space-x-4">
               <Filter className="h-5 w-5 text-gray-400" />
+              <label htmlFor="filterStatus" className="sr-only">Filter by status</label>
               <select
+                id="filterStatus"
                 value={filterStatus}
                 onChange={(e) => setFilterStatus(e.target.value)}
                 className="border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
@@ -145,9 +147,9 @@ export function Documents() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <div className="flex space-x-3">
-                        <Button variant="ghost" size="sm" icon={Eye} />
+                        <Button variant="outline" size="sm" icon={Eye} />
                         <Button variant="ghost" size="sm" icon={Download} />
-                        <Button variant="ghost" size="sm" icon={Trash2} className="text-red-600 hover:text-red-700" />
+                        <Button variant="outline" size="sm" icon={Trash2} className="text-red-600 hover:text-red-700" />
                       </div>
                     </td>
                   </tr>

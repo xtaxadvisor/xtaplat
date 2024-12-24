@@ -61,8 +61,8 @@ export function useUsers() {
     createUser: createUserMutation.mutate,
     updateUser: updateUserMutation.mutate,
     deleteUser: deleteUserMutation.mutate,
-    isCreating: createUserMutation.isLoading,
-    isUpdating: updateUserMutation.isLoading,
-    isDeleting: deleteUserMutation.isLoading
+    isCreating: createUserMutation.status === 'pending',
+    isUpdating: updateUserMutation.status === 'pending',
+    isDeleting: deleteUserMutation.status === 'pending'
   };
 }

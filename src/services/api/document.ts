@@ -33,5 +33,5 @@ export const documentService = {
     api.delete<void>(`/documents/${id}`),
 
   search: (query: string) => 
-    api.get<Document[]>('/documents/search', { params: { query } }),
+    api.get<Document[]>(`/documents/search?query=${encodeURIComponent(query)}`),
 };

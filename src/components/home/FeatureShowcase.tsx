@@ -52,10 +52,9 @@ export function FeatureShowcase() {
                 key={index}
                 className={`transition-all duration-500 ${
                   activeFeature === index
-                    ? 'opacity-100 transform translate-y-0'
-                    : 'opacity-0 absolute inset-0 transform translate-y-4'
+                    ? 'opacity-100 transform translate-y-0 featureImage'
+                    : 'opacity-0 absolute inset-0 transform translate-y-4 featureImageHidden'
                 }`}
-                style={{ display: activeFeature === index ? 'block' : 'none' }}
               >
                 <img
                   src={feature.image}

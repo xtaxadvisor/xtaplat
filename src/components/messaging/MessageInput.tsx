@@ -36,11 +36,12 @@ export function MessageInput({ onSendMessage, isLoading }: MessageInputProps) {
           className="hidden"
           id="file-upload"
           onChange={handleFileChange}
+          title="Upload files"
         />
         <label htmlFor="file-upload">
           <Button
             type="button"
-            variant="ghost"
+            variant="outline"
             icon={Paperclip}
             className="text-gray-400 hover:text-gray-600"
           />

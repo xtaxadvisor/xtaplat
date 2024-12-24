@@ -1,4 +1,4 @@
-import type { AnalyticsTrend } from '../../types/analytics';
+import type { AnalyticsTrend } from '../../types/analytics'; // Ensure that AnalyticsTrend is correctly exported from this module
 
 export function calculateTrend(history: Array<{ date: string; value: number }>): number {
   if (history.length < 2) return 0;

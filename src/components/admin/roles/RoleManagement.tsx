@@ -3,7 +3,14 @@ import { Shield, Edit2, Trash2, Plus } from 'lucide-react';
 import { Button } from '../../ui/Button';
 import { Modal } from '../../ui/Modal';
 import { RoleForm } from './RoleForm';
-import { useRoles } from '../../../hooks/useRoles';
+import { useRoles } from '../../../hooks/useRoles'; // Ensure this path is correct or update it to the correct path
+
+interface Role {
+  id: string;
+  name: string;
+  permissions: string[];
+  userCount: number;
+}
 
 export function RoleManagement() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,13 +52,16 @@ export function RoleManagement() {
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Permissions
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Users
-                  </th>
-                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Actions
-                  </th>
-                </tr>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Users
+                    </th>
+                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {roles?.map((role: Role) => (
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {roles?.map((role) => (
@@ -66,7 +76,7 @@ export function RoleManagement() {
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex flex-wrap gap-2">
-                        {role.permissions.map((permission) => (
+                        {role.permissions.map((permission: string) => (
                           <span
                             key={permission}
                             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
@@ -81,7 +91,7 @@ export function RoleManagement() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <Button
-                        variant="ghost"
+                        variant="outline"
                         size="sm"
                         icon={Edit2}
                         onClick={() => {

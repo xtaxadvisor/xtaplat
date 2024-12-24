@@ -16,7 +16,8 @@ export function ProfessionalDashboard() {
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-900">Professional Dashboard</h1>
         <div className="flex space-x-3">
-          <select className="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+          <label htmlFor="timeframe" className="sr-only">Select Timeframe</label>
+          <select id="timeframe" className="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
             <option>This Week</option>
             <option>This Month</option>
             <option>This Quarter</option>

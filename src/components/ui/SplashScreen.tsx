@@ -31,6 +31,7 @@ export function SplashScreen() {
       }`}
     >
       <button 
+        title="Close"
         onClick={() => setIsVisible(false)}
         className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-700 transition-colors"
       >

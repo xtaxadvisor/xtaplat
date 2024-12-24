@@ -21,7 +21,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
           <div className="flex items-center justify-between p-4 border-b">
             <h3 className="text-lg font-medium text-gray-900">{title}</h3>
             <Button
-              variant="ghost"
+              variant="outline"
               size="sm"
               onClick={onClose}
               icon={X}
