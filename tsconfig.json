@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-<<<<<<< HEAD
     "target": "ESNext",
     "module": "ESNext",
     "jsx": "react-jsx",
@@ -21,25 +20,10 @@
       "@hooks/*": ["src/hooks/*"],
       "@contexts/*": ["src/contexts/*"],
       "@types/*": ["src/types/*"]
-    }
+    },
+    "lib": ["ES2022", "DOM"],
+    "typeRoots": ["./node_modules/@types", "./src/types"]
   },
   "include": ["src"],
   "exclude": ["node_modules"]
-=======
-    "jsx": "react",
-    "target": "esnext",
-    "module": "ESNext",
-    "lib": ["ES2022", "DOM"],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    },
-    "typeRoots": ["./node_modules/@types", "./src/types"], // Add this line
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true
-  },
-  "include": ["src"]
->>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }
