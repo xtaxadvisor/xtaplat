@@ -4,7 +4,7 @@ export function prepareTimeSeriesData(data, options = {}) {
     return data.map(series => ({
         label: series.label,
         data: series.data.map(d => ({
-            x: formatDate(d.date),
+            x: new Date(formatDate(d.date)).getTime(),
             y: d.value
         })),
         borderColor: series.color,

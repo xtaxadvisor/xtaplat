@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 import { jsx as _jsx } from "react/jsx-runtime";
-=======
-import React from 'react';
->>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { Line } from 'react-chartjs-2';
 import { formatDate } from '../../../../utils/date';
+import './TimeSeriesChart.css';
 export function TimeSeriesChart({ series, height = 300 }) {
     const data = {
         labels: series[0].data.map(d => formatDate(d.date)),
@@ -43,11 +40,5 @@ export function TimeSeriesChart({ series, height = 300 }) {
             }
         }
     };
-<<<<<<< HEAD
-    return (_jsx("div", { style: { height }, children: _jsx(Line, { data: data, options: options }) }));
-=======
-    return (<div style={{ height }}>
-      <Line data={data} options={options}/>
-    </div>);
->>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
+    return (_jsx("div", { className: "time-series-chart", style: { height: `${height}px` }, children: _jsx("div", { className: "time-series-chart-container", children: _jsx(Line, { data: data, options: options }) }) }));
 }

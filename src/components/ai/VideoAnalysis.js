@@ -1,4 +1,4 @@
-import React from 'react';
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Brain, Lightbulb, Target, BookOpen } from 'lucide-react';
 import { useAI } from '../../hooks/useAI';
 import { Button } from '../ui/Button';
@@ -21,36 +21,5 @@ export function VideoAnalysis({ video }) {
       4. Related topics to explore`;
         await sendMessage(prompt);
     };
-    return (<div className="bg-white rounded-lg shadow-lg p-6 mt-6">
-      <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-gray-900 flex items-center">
-          <Brain className="h-5 w-5 text-blue-600 mr-2"/>
-          AI Course Analysis
-        </h3>
-        <Button variant="outline" size="sm" icon={Lightbulb} onClick={generateInsights} disabled={isLoading}>
-          {isLoading ? 'Analyzing...' : 'Generate Insights'}
-        </Button>
-      </div>
-
-      {messages.length > 0 && (<div className="space-y-4">
-          {messages.map((message, index) => (message.role === 'assistant' && (<div key={index} className="prose max-w-none">
-                <div className="bg-blue-50 rounded-lg p-4">
-                  <div className="flex items-center mb-3">
-                    <Target className="h-5 w-5 text-blue-600 mr-2"/>
-                    <h4 className="text-sm font-medium text-blue-900">Learning Insights</h4>
-                  </div>
-                  <div className="text-sm text-blue-800 whitespace-pre-wrap">
-                    {message.content}
-                  </div>
-                </div>
-              </div>)))}
-        </div>)}
-
-      {!messages.length && !isLoading && (<div className="text-center py-6">
-          <BookOpen className="h-12 w-12 text-gray-400 mx-auto mb-3"/>
-          <p className="text-gray-500">
-            Click "Generate Insights" to get AI-powered analysis of this course
-          </p>
-        </div>)}
-    </div>);
+    return (_jsxs("div", { className: "bg-white rounded-lg shadow-lg p-6 mt-6", children: [_jsxs("div", { className: "flex items-center justify-between mb-6", children: [_jsxs("h3", { className: "text-lg font-semibold text-gray-900 flex items-center", children: [_jsx(Brain, { className: "h-5 w-5 text-blue-600 mr-2" }), "AI Course Analysis"] }), _jsx(Button, { variant: "outline", size: "sm", icon: Lightbulb, onClick: generateInsights, disabled: isLoading, children: isLoading ? 'Analyzing...' : 'Generate Insights' })] }), messages.length > 0 && (_jsx("div", { className: "space-y-4", children: messages.map((message, index) => (message.role === 'assistant' && (_jsx("div", { className: "prose max-w-none", children: _jsxs("div", { className: "bg-blue-50 rounded-lg p-4", children: [_jsxs("div", { className: "flex items-center mb-3", children: [_jsx(Target, { className: "h-5 w-5 text-blue-600 mr-2" }), _jsx("h4", { className: "text-sm font-medium text-blue-900", children: "Learning Insights" })] }), _jsx("div", { className: "text-sm text-blue-800 whitespace-pre-wrap", children: message.content })] }) }, index)))) })), !messages.length && !isLoading && (_jsxs("div", { className: "text-center py-6", children: [_jsx(BookOpen, { className: "h-12 w-12 text-gray-400 mx-auto mb-3" }), _jsx("p", { className: "text-gray-500", children: "Click \"Generate Insights\" to get AI-powered analysis of this course" })] }))] }));
 }

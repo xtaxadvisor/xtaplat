@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { jsx as _jsx } from "react/jsx-runtime";
-=======
-import React from 'react';
->>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -25,7 +21,7 @@ export function BarChart() {
                 display: false,
             },
             tooltip: {
-                mode: 'index',
+                mode: 'nearest',
                 intersect: false,
             },
         },
@@ -43,11 +39,5 @@ export function BarChart() {
             },
         },
     };
-<<<<<<< HEAD
     return (_jsx("div", { className: "w-full h-[300px]", children: _jsx(Bar, { data: data, options: options }) }));
-=======
-    return (<div className="w-full h-[300px]">
-      <Bar data={data} options={options}/>
-    </div>);
->>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

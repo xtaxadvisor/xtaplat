@@ -6,5 +6,5 @@ export const documentService = {
     create: (data) => api.post('/documents', data),
     update: ({ id, ...data }) => api.put(`/documents/${id}`, data),
     delete: (id) => api.delete(`/documents/${id}`),
-    search: (query) => api.get('/documents/search', { params: { query } }),
+    search: (query) => api.get(`/documents/search?query=${encodeURIComponent(query)}`),
 };

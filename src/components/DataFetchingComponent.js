@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useEffect, useState } from 'react';
 import axiosInstance from '../../api/axiosConfig'; // Ensure this path is correct or adjust it to the correct location
 // If the path is incorrect, adjust it to the correct location
 // For example: import axiosInstance from '../../api/axiosConfig';
@@ -17,10 +18,7 @@ const DataFetchingComponent = () => {
         });
     }, []);
     if (loading)
-        return <div>Loading...</div>;
-    return (<div>
-      <h1>Fetched Data</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </div>);
+        return _jsx("div", { children: "Loading..." });
+    return (_jsxs("div", { children: [_jsx("h1", { children: "Fetched Data" }), _jsx("pre", { children: JSON.stringify(data, null, 2) })] }));
 };
 export default DataFetchingComponent;

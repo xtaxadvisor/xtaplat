@@ -3,7 +3,7 @@ import { analyticsService } from '../../../services/api/analytics';
 export function useAdminMetrics() {
     const { data: metrics, isLoading } = useQuery({
         queryKey: ['admin-metrics'],
-        queryFn: analyticsService.getAnalytics
+        queryFn: ({ queryKey }) => analyticsService.getAnalytics(queryKey[1])
     });
     return {
         metrics,

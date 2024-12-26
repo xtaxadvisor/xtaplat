@@ -8,11 +8,16 @@ export function useConsultation(consultationId) {
     const { user } = useAuth();
     const { data: consultation, isLoading } = useQuery({
         queryKey: ['consultation', consultationId],
-        queryFn: () => consultationService.getById(consultationId),
-        enabled: !!consultationId,
-        onError: () => {
-            addNotification('Failed to load consultation details', 'error');
-        }
+        queryFn: async () => {
+            try {
+                return await consultationService.getById(consultationId);
+            }
+            catch (error) {
+                addNotification('Failed to load consultation details', 'error');
+                throw error;
+            }
+        },
+        enabled: !!consultationId
     });
     const scheduleMutation = useMutation({
         mutationFn: (data) => consultationService.schedule(data),

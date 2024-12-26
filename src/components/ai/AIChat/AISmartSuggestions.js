@@ -1,3 +1,4 @@
+"use strict";
 `` `typescript
 import React from 'react';
 import { Calculator, Calendar, FileText, HelpCircle } from 'lucide-react';

@@ -1,3 +1,4 @@
+"use strict";
 `` `typescript
 interface StorageItem {
   value: any;

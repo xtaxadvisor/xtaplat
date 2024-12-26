@@ -1,4 +1,4 @@
-import React from 'react';
+import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
 import { AIMessageList } from './AIMessageList';
 import { AIMessageInput } from './AIMessageInput';
 import { AIWelcomeMessage } from '../AIWelcomeMessage';
@@ -11,20 +11,5 @@ export function AIChat({ messages, onSendMessage, isLoading, error }) {
         'What are your business hours?',
         'Do you offer virtual meetings?'
     ];
-    return (<div className="flex flex-col h-[500px]">
-      <AIHeader onClose={() => { }}/>
-      
-      <div className="flex-1 overflow-y-auto">
-        {messages.length === 0 ? (<>
-            <AIWelcomeMessage />
-            <AISuggestions suggestions={suggestions} onSelect={onSendMessage}/>
-          </>) : (<AIMessageList messages={messages} isTyping={isLoading}/>)}
-      </div>
-
-      <AIMessageInput onSend={onSendMessage} isDisabled={isLoading} placeholder="Type your message..."/>
-
-      {error && (<div className="p-4 bg-red-50 text-red-600 text-sm border-t border-red-100">
-          {error.message}
-        </div>)}
-    </div>);
+    return (_jsxs("div", { className: "flex flex-col h-[500px]", children: [_jsx(AIHeader, { onClose: () => { } }), _jsx("div", { className: "flex-1 overflow-y-auto", children: messages.length === 0 ? (_jsxs(_Fragment, { children: [_jsx(AIWelcomeMessage, {}), _jsx(AISuggestions, { suggestions: suggestions, onSelect: onSendMessage })] })) : (_jsx(AIMessageList, { messages: messages, isTyping: isLoading })) }), _jsx(AIMessageInput, { onSend: onSendMessage, isDisabled: isLoading, placeholder: "Type your message..." }), error && (_jsx("div", { className: "p-4 bg-red-50 text-red-600 text-sm border-t border-red-100", children: error.message }))] }));
 }

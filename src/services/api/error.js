@@ -1,3 +1,4 @@
+"use strict";
 `` `typescript
 export class APIError extends Error {
   constructor(

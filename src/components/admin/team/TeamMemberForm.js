@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
-=======
-import React, { useState } from 'react';
->>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import { useNotificationStore } from '../../../lib/store';
@@ -26,32 +22,5 @@ export function TeamMemberForm({ initialData, onSubmit, onCancel }) {
         }
         onSubmit(formData);
     };
-<<<<<<< HEAD
     return (_jsxs("form", { onSubmit: handleSubmit, className: "space-y-6", children: [_jsx(Input, { label: "Full Name", value: formData.name, onChange: (e) => setFormData({ ...formData, name: e.target.value }), required: true }), _jsx(Input, { label: "Role/Title", value: formData.role, onChange: (e) => setFormData({ ...formData, role: e.target.value }), required: true }), _jsx(Input, { label: "Description", value: formData.description, onChange: (e) => setFormData({ ...formData, description: e.target.value }), multiline: true, rows: 4, required: true }), _jsx(Input, { label: "Profile Image URL", value: formData.image, onChange: (e) => setFormData({ ...formData, image: e.target.value }), placeholder: "https://example.com/image.jpg" }), _jsx(Input, { label: "Email", type: "email", value: formData.email || '', onChange: (e) => setFormData({ ...formData, email: e.target.value }), placeholder: "john@example.com" }), _jsx(Input, { label: "LinkedIn Profile", value: formData.linkedin || '', onChange: (e) => setFormData({ ...formData, linkedin: e.target.value }), placeholder: "https://linkedin.com/in/username" }), _jsx(Input, { label: "Website", value: formData.website || '', onChange: (e) => setFormData({ ...formData, website: e.target.value }), placeholder: "https://example.com" }), _jsxs("div", { className: "flex justify-end space-x-3", children: [_jsx(Button, { type: "button", variant: "outline", onClick: onCancel, children: "Cancel" }), _jsxs(Button, { type: "submit", variant: "primary", children: [initialData ? 'Update' : 'Add', " Team Member"] })] })] }));
-=======
-    return (<form onSubmit={handleSubmit} className="space-y-6">
-      <Input label="Full Name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required/>
-
-      <Input label="Role/Title" value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })} required/>
-
-      <Input label="Description" value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} multiline rows={4} required/>
-
-      <Input label="Profile Image URL" value={formData.image} onChange={(e) => setFormData({ ...formData, image: e.target.value })} placeholder="https://example.com/image.jpg"/>
-
-      <Input label="Email" type="email" value={formData.email || ''} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="john@example.com"/>
-
-      <Input label="LinkedIn Profile" value={formData.linkedin || ''} onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })} placeholder="https://linkedin.com/in/username"/>
-
-      <Input label="Website" value={formData.website || ''} onChange={(e) => setFormData({ ...formData, website: e.target.value })} placeholder="https://example.com"/>
-
-      <div className="flex justify-end space-x-3">
-        <Button type="button" variant="outline" onClick={onCancel}>
-          Cancel
-        </Button>
-        <Button type="submit" variant="primary">
-          {initialData ? 'Update' : 'Add'} Team Member
-        </Button>
-      </div>
-    </form>);
->>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

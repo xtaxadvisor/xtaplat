@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
+import { useEffect, useState } from 'react';
 import fetchData from '../utils/fetchData';
 const DataComponent = () => {
     const [data, setData] = useState([]);
@@ -16,14 +17,9 @@ const DataComponent = () => {
         getData();
     }, []);
     if (error)
-        return <div>Error: {error}</div>;
+        return _jsxs("div", { children: ["Error: ", error] });
     if (!data.length)
-        return <div>Loading...</div>;
-    return (<div>
-      <h1>Fetched Data</h1>
-      <ul>
-        {data.map((item, index) => (<li key={index}>{JSON.stringify(item)}</li>))}
-      </ul>
-    </div>);
+        return _jsx("div", { children: "Loading..." });
+    return (_jsxs("div", { children: [_jsx("h1", { children: "Fetched Data" }), _jsx("ul", { children: data.map((item, index) => (_jsx("li", { children: JSON.stringify(item) }, index))) })] }));
 };
 export default DataComponent;

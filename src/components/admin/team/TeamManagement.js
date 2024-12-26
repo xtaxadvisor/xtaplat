@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
-=======
-import React, { useState } from 'react';
->>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { Plus, Edit2, Trash2, Search, Filter } from 'lucide-react';
 import { Button } from '../../ui/Button';
 import { Modal } from '../../ui/Modal';
@@ -43,7 +39,6 @@ export function TeamManagement() {
         }
     };
     if (isLoading) {
-<<<<<<< HEAD
         return _jsx(LoadingSpinner, {});
     }
     return (_jsxs("div", { className: "space-y-6", children: [_jsxs("div", { className: "flex justify-between items-center", children: [_jsx("h2", { className: "text-2xl font-bold text-gray-900", children: "Team Management" }), _jsx(Button, { variant: "primary", icon: Plus, onClick: () => {
@@ -54,105 +49,11 @@ export function TeamManagement() {
                                                 { value: 'admin', label: 'Admin' },
                                                 { value: 'manager', label: 'Manager' },
                                                 { value: 'staff', label: 'Staff' }
-                                            ], value: filterRole, onChange: setFilterRole })] })] }), _jsx("div", { className: "overflow-x-auto", children: _jsxs("table", { className: "min-w-full divide-y divide-gray-200", children: [_jsx("thead", { className: "bg-gray-50", children: _jsxs("tr", { children: [_jsx("th", { className: "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider", children: "Member" }), _jsx("th", { className: "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider", children: "Role" }), _jsx("th", { className: "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider", children: "Email" }), _jsx("th", { className: "px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider", children: "Actions" })] }) }), _jsx("tbody", { className: "bg-white divide-y divide-gray-200", children: filteredMembers?.map((member) => (_jsxs("tr", { className: "hover:bg-gray-50", children: [_jsx("td", { className: "px-6 py-4 whitespace-nowrap", children: _jsxs("div", { className: "flex items-center", children: [_jsx("div", { className: "h-10 w-10 flex-shrink-0", children: _jsx("img", { className: "h-10 w-10 rounded-full object-cover", src: member.image, alt: member.name }) }), _jsx("div", { className: "ml-4", children: _jsx("div", { className: "text-sm font-medium text-gray-900", children: member.name }) })] }) }), _jsx("td", { className: "px-6 py-4 whitespace-nowrap", children: _jsx("div", { className: "text-sm text-gray-900", children: member.role }) }), _jsx("td", { className: "px-6 py-4 whitespace-nowrap", children: _jsx("div", { className: "text-sm text-gray-500", children: member.email }) }), _jsxs("td", { className: "px-6 py-4 whitespace-nowrap text-right text-sm font-medium", children: [_jsx(Button, { variant: "ghost", size: "sm", icon: Edit2, onClick: () => handleEdit(member), className: "mr-2", children: "Edit" }), _jsx(Button, { variant: "ghost", size: "sm", icon: Trash2, onClick: () => handleDelete(member.id), className: "text-red-600 hover:text-red-700", children: "Delete" })] })] }, member.id))) })] }) })] }) }), _jsx(Modal, { isOpen: isModalOpen, onClose: () => {
+                                            ], value: filterRole, onChange: setFilterRole })] })] }), _jsx("div", { className: "overflow-x-auto", children: _jsxs("table", { className: "min-w-full divide-y divide-gray-200", children: [_jsx("thead", { className: "bg-gray-50", children: _jsxs("tr", { children: [_jsx("th", { className: "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider", children: "Member" }), _jsx("th", { className: "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider", children: "Role" }), _jsx("th", { className: "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider", children: "Email" }), _jsx("th", { className: "px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider", children: "Actions" })] }) }), _jsx("tbody", { className: "bg-white divide-y divide-gray-200", children: filteredMembers?.map((member) => (_jsxs("tr", { className: "hover:bg-gray-50", children: [_jsx("td", { className: "px-6 py-4 whitespace-nowrap", children: _jsxs("div", { className: "flex items-center", children: [_jsx("div", { className: "h-10 w-10 flex-shrink-0", children: _jsx("img", { className: "h-10 w-10 rounded-full object-cover", src: member.image, alt: member.name }) }), _jsx("div", { className: "ml-4", children: _jsx("div", { className: "text-sm font-medium text-gray-900", children: member.name }) })] }) }), _jsx("td", { className: "px-6 py-4 whitespace-nowrap", children: _jsx("div", { className: "text-sm text-gray-900", children: member.role }) }), _jsx("td", { className: "px-6 py-4 whitespace-nowrap", children: _jsx("div", { className: "text-sm text-gray-500", children: member.email }) }), _jsxs("td", { className: "px-6 py-4 whitespace-nowrap text-right text-sm font-medium", children: [_jsx(Button, { variant: "outline", size: "sm", icon: Edit2, onClick: () => handleEdit(member), className: "mr-2", children: "Edit" }), _jsx(Button, { variant: "ghost", size: "sm", icon: Trash2, onClick: () => handleDelete(member.id), className: "text-red-600 hover:text-red-700", children: "Delete" })] })] }, member.id))) })] }) })] }) }), _jsx(Modal, { isOpen: isModalOpen, onClose: () => {
                     setIsModalOpen(false);
                     setSelectedMember(null);
                 }, title: selectedMember ? 'Edit Team Member' : 'Add Team Member', children: _jsx(TeamMemberForm, { initialData: selectedMember, onSubmit: handleSubmit, onCancel: () => {
                         setIsModalOpen(false);
                         setSelectedMember(null);
                     } }) })] }));
-=======
-        return <LoadingSpinner />;
-    }
-    return (<div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-gray-900">Team Management</h2>
-        <Button variant="primary" icon={Plus} onClick={() => {
-            setSelectedMember(null);
-            setIsModalOpen(true);
-        }}>
-          Add Team Member
-        </Button>
-      </div>
-
-      <div className="bg-white rounded-lg shadow">
-        <div className="p-6">
-          <div className="flex justify-between items-center mb-6">
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400"/>
-              <input type="text" placeholder="Search team members..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"/>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Filter className="h-5 w-5 text-gray-400"/>
-              <Select options={[
-            { value: 'all', label: 'All Roles' },
-            { value: 'admin', label: 'Admin' },
-            { value: 'manager', label: 'Manager' },
-            { value: 'staff', label: 'Staff' }
-        ]} value={filterRole} onChange={setFilterRole}/>
-            </div>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Member
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Role
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Email
-                  </th>
-                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {filteredMembers?.map((member) => (<tr key={member.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="flex items-center">
-                        <div className="h-10 w-10 flex-shrink-0">
-                          <img className="h-10 w-10 rounded-full object-cover" src={member.image} alt={member.name}/>
-                        </div>
-                        <div className="ml-4">
-                          <div className="text-sm font-medium text-gray-900">{member.name}</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{member.role}</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-500">{member.email}</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <Button variant="ghost" size="sm" icon={Edit2} onClick={() => handleEdit(member)} className="mr-2">
-                        Edit
-                      </Button>
-                      <Button variant="ghost" size="sm" icon={Trash2} onClick={() => handleDelete(member.id)} className="text-red-600 hover:text-red-700">
-                        Delete
-                      </Button>
-                    </td>
-                  </tr>))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <Modal isOpen={isModalOpen} onClose={() => {
-            setIsModalOpen(false);
-            setSelectedMember(null);
-        }} title={selectedMember ? 'Edit Team Member' : 'Add Team Member'}>
-        <TeamMemberForm initialData={selectedMember} onSubmit={handleSubmit} onCancel={() => {
-            setIsModalOpen(false);
-            setSelectedMember(null);
-        }}/>
-      </Modal>
-    </div>);
->>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

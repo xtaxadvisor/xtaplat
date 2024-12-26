@@ -1,3 +1,4 @@
+"use strict";
 `` `typescript
 import type { AIFeedback } from '../../types/ai';
 

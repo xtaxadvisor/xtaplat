@@ -1,3 +1,4 @@
+"use strict";
 `` `typescript
 import type { AIResponse } from '../../types/ai';
 import { analyzeText } from './analysis';

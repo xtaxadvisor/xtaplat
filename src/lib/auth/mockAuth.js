@@ -75,7 +75,10 @@ export async function mockRegister(data) {
     }
     const newUser = {
         id: String(users.length + 1),
-        ...data,
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        role: data.role,
         isAdmin: false
     };
     users.push(newUser);

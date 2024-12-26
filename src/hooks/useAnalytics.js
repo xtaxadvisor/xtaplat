@@ -31,13 +31,9 @@ export function useAnalytics(timeRange) {
         queryKey: ['client-growth', timeRange],
         queryFn: () => analyticsService.getClientGrowth(timeRange)
     });
-    const { data: performanceMetrics, isLoading: performanceLoading } = useQuery({
-        queryKey: ['performance-metrics', timeRange],
-        queryFn: () => analyticsService.getPerformanceMetrics(timeRange)
-    });
     const exportAnalytics = async (format) => {
         try {
-            const data = await analyticsService.exportAnalytics(timeRange, format);
+            const data = await analyticsService.exportAnalytics({ timeRange, format });
             const blob = new Blob([data], {
                 type: format === 'csv' ? 'text/csv' :
                     format === 'excel' ? 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' :
@@ -61,8 +57,7 @@ export function useAnalytics(timeRange) {
         metrics,
         revenueData,
         clientGrowth,
-        performanceMetrics,
-        isLoading: metricsLoading || revenueLoading || clientGrowthLoading || performanceLoading,
-        exportAnalytics
+        exportAnalytics,
+        isLoading: metricsLoading || revenueLoading || clientGrowthLoading,
     };
 }

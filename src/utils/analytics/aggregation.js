@@ -9,10 +9,14 @@ export function aggregateTimeSeries(data, interval = 'day') {
     const start = startOfDay(new Date(data[0].date));
     const end = endOfDay(new Date(data[data.length - 1].date));
     const allDays = eachDayOfInterval({ start, end });
-    return allDays.map(date => ({
-        date: date.toISOString(),
-        value: grouped[date.toISOString()] || 0
-    }));
+    return {
+        label: 'Time Series',
+        data: allDays.map(date => ({
+            date: date.toISOString(),
+            value: grouped[date.toISOString()] || 0
+        })),
+        color: '#000000' // You can set the color as needed
+    };
 }
 export function calculateMovingAverage(data, windowSize = 7) {
     const result = [];

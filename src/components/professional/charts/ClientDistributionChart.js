@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { jsx as _jsx } from "react/jsx-runtime";
-=======
-import React from 'react';
->>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -45,11 +41,5 @@ export function ClientDistributionChart() {
             }
         }
     };
-<<<<<<< HEAD
     return (_jsx("div", { className: "w-full h-[400px] flex items-center justify-center", children: _jsx(Pie, { data: data, options: options }) }));
-=======
-    return (<div className="w-full h-[400px] flex items-center justify-center">
-      <Pie data={data} options={options}/>
-    </div>);
->>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }

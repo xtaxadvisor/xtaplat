@@ -1,3 +1,4 @@
+"use strict";
 `` `typescript
 import React from 'react';
 import { ThumbsUp, ThumbsDown } from 'lucide-react';

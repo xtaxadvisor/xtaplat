@@ -1,3 +1,4 @@
+"use strict";
 `` `typescript
 import { retryAdapterEnhancer } from 'axios-extensions';
 

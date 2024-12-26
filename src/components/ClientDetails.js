@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useEffect, useState } from 'react';
 import { clientService } from '../services/api/clientService';
 const ClientDetails = ({ clientId }) => {
     const [client, setClient] = useState(null);
@@ -28,17 +29,11 @@ const ClientDetails = ({ clientId }) => {
             .catch((err) => setError(err.message));
     };
     if (loading)
-        return <div>Loading client details...</div>;
+        return _jsx("div", { children: "Loading client details..." });
     if (error)
-        return <div>Error: {error}</div>;
+        return _jsxs("div", { children: ["Error: ", error] });
     if (!client)
-        return <div>Client not found.</div>;
-    return (<div>
-      <h1>{client.name}</h1>
-      <p>Email: {client.email}</p>
-      <p>Phone: {client.phone}</p>
-      <button onClick={handleUpdate}>Update Client</button>
-      <button onClick={handleDelete}>Delete Client</button>
-    </div>);
+        return _jsx("div", { children: "Client not found." });
+    return (_jsxs("div", { children: [_jsx("h1", { children: client.name }), _jsxs("p", { children: ["Email: ", client.email] }), _jsxs("p", { children: ["Phone: ", client.phone] }), _jsx("button", { onClick: handleUpdate, children: "Update Client" }), _jsx("button", { onClick: handleDelete, children: "Delete Client" })] }));
 };
 export default ClientDetails;

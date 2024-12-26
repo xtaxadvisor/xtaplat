@@ -44,8 +44,8 @@ export function useInvestmentForum(category) {
         createThread: createThreadMutation.mutate,
         updateThread: updateThreadMutation.mutate,
         deleteThread: deleteThreadMutation.mutate,
-        isCreating: createThreadMutation.isLoading,
-        isUpdating: updateThreadMutation.isLoading,
-        isDeleting: deleteThreadMutation.isLoading
+        isCreating: createThreadMutation.status === 'pending',
+        isUpdating: updateThreadMutation.status === 'pending',
+        isDeleting: deleteThreadMutation.status === 'pending'
     };
 }

@@ -5,8 +5,6 @@ export const calendarService = {
     createEvent: (data) => api.post('/calendar/events', data),
     updateEvent: ({ id, ...data }) => api.put(`/calendar/events/${id}`, data),
     deleteEvent: (id) => api.delete(`/calendar/events/${id}`),
-    getAvailability: (date) => api.get('/calendar/availability', {
-        params: { date }
-    }),
+    getAvailability: (date) => api.get('/calendar/availability?' + new URLSearchParams({ date }).toString()),
     syncCalendar: (provider) => api.post('/calendar/sync', { provider }),
 };

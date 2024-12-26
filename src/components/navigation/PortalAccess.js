@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-=======
-import React from 'react';
->>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 import { useNavigate } from 'react-router-dom';
 import { Shield, Users, Database, TrendingUp, MessageSquare, BookOpen } from 'lucide-react';
 import { Button } from '../ui/Button';
@@ -23,22 +19,7 @@ export function PortalButton({ title, description, icon: Icon, path, requiredRol
         }
         navigate(path);
     };
-<<<<<<< HEAD
     return (_jsxs("div", { className: "bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1", children: [_jsxs("div", { className: "flex items-center mb-4", children: [_jsx("div", { className: "p-2 bg-blue-50 rounded-lg", children: _jsx(Icon, { className: "h-6 w-6 text-blue-600" }) }), _jsx("h3", { className: "ml-3 text-xl font-semibold text-gray-900", children: title })] }), _jsx("p", { className: "text-gray-600 mb-6", children: description }), _jsx(Button, { variant: "primary", onClick: handleAccess, className: "w-full", children: "Access Portal" })] }));
-=======
-    return (<div className="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-      <div className="flex items-center mb-4">
-        <div className="p-2 bg-blue-50 rounded-lg">
-          <Icon className="h-6 w-6 text-blue-600"/>
-        </div>
-        <h3 className="ml-3 text-xl font-semibold text-gray-900">{title}</h3>
-      </div>
-      <p className="text-gray-600 mb-6">{description}</p>
-      <Button variant="primary" onClick={handleAccess} className="w-full">
-        Access Portal
-      </Button>
-    </div>);
->>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }
 export function PortalAccess() {
     const portals = [
@@ -84,11 +65,5 @@ export function PortalAccess() {
             path: '/messages'
         }
     ];
-<<<<<<< HEAD
     return (_jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6", children: portals.map((portal) => (_jsx(PortalButton, { ...portal }, portal.title))) }));
-=======
-    return (<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {portals.map((portal) => (<PortalButton key={portal.title} {...portal}/>))}
-    </div>);
->>>>>>> a7b0be932c49a4cde828a1338978f055d972656c
 }
