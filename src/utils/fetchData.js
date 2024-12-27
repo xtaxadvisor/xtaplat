@@ -1,12 +1,12 @@
-import axiosInstance from '../services/axiosConfig';
-const fetchData = async () => {
-    try {
-        // Replace '/api/v1/data' with your actual endpoint
-        const response = await axiosInstance.get('/api/v1/data');
-        console.log('API Data:', response.data);
+// src/utils/fetchData.ts
+import supabase from '../services/supabaseClient';
+export default async function fetchData() {
+    const { data, error } = await supabase
+        .from('your-table-name')
+        .select('*');
+    if (error) {
+        throw new Error(error.message);
     }
-    catch (error) {
-        console.error('Error fetching data:', error);
-    }
-};
-export default fetchData;
+    // data can be null, so return an empty array fallback
+    return data ?? [];
+}

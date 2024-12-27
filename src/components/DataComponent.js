@@ -7,6 +7,7 @@ const DataComponent = () => {
     useEffect(() => {
         const getData = async () => {
             try {
+                // fetchData now returns SomeData[], so 'response' is typed
                 const response = await fetchData();
                 setData(response);
             }
@@ -16,8 +17,10 @@ const DataComponent = () => {
         };
         getData();
     }, []);
+    // Show any error
     if (error)
         return _jsxs("div", { children: ["Error: ", error] });
+    // Show "Loading..." if no data yet
     if (!data.length)
         return _jsx("div", { children: "Loading..." });
     return (_jsxs("div", { children: [_jsx("h1", { children: "Fetched Data" }), _jsx("ul", { children: data.map((item, index) => (_jsx("li", { children: JSON.stringify(item) }, index))) })] }));
