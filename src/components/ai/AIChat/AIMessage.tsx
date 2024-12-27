@@ -5,12 +5,10 @@ import type { AIMessage as AIMessageType } from '../../../types/ai'; // Importin
 // Define props for the AIMessage component
 interface AIMessageProps {
   message: AIMessageType; // Message type from your type definitions
-  isLast: boolean; // Whether this is the last message in the conversation
 }
 
 // AIMessage functional component
-export function AIMessage({ message, isLast }: AIMessageProps) {
-  // Determine if the message is from the user
+export function AIMessage({ message }: AIMessageProps) {
   const isUser = message.role === 'user';
 
   return (

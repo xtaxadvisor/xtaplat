@@ -1,13 +1,22 @@
-import axiosInstance from '../services/axiosConfig';
+// src/utils/fetchData.ts
+import supabase from '../services/supabaseClient';
 
-const fetchData = async () => {
-  try {
-    // Replace '/api/v1/data' with your actual endpoint
-    const response = await axiosInstance.get('/api/v1/data');
-    console.log('API Data:', response.data);
-  } catch (error) {
-    console.error('Error fetching data:', error);
+// Example interface for the data you're fetching (customize as needed):
+export interface SomeData {
+  id: number;
+  name: string;
+  // Add fields that match your table
+}
+
+export default async function fetchData(): Promise<SomeData[]> {
+  const { data, error } = await supabase
+    .from('your-table-name')
+    .select('*');
+
+  if (error) {
+    throw new Error(error.message);
   }
-};
 
-export default fetchData;
+  // data can be null, so return an empty array fallback
+  return data ?? [];
+}

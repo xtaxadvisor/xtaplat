@@ -5,7 +5,7 @@ import './SupabaseDataComponent.css';
 const SupabaseDataComponent: React.FC = () => {
   const [data, setData] = useState<any[]>([]); // Use specific types if available
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,10 +23,10 @@ const SupabaseDataComponent: React.FC = () => {
         setLoading(false); // Ensure loading stops
       }
     };
-
     fetchData();
   }, []);
-
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div className="error">Error: {error}</div>;
   if (error) return <div className="error">Error: {error}</div>;
   if (error) return <div className="error-red">Error: {error}</div>;
 

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import fetchData from '../utils/fetchData';
+import fetchData, { SomeData } from '../utils/fetchData';
 
 const DataComponent: React.FC = () => {
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<SomeData[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const getData = async () => {
       try {
+        // fetchData now returns SomeData[], so 'response' is typed
         const response = await fetchData();
         setData(response);
       } catch (err: any) {
@@ -18,7 +19,10 @@ const DataComponent: React.FC = () => {
     getData();
   }, []);
 
+  // Show any error
   if (error) return <div>Error: {error}</div>;
+
+  // Show "Loading..." if no data yet
   if (!data.length) return <div>Loading...</div>;
 
   return (
