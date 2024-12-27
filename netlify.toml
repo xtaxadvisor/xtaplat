@@ -1,8 +1,7 @@
 # Global settings for the build & deploy process
 [build]
-  command = "npm install && npm run build"  # Ensure dependencies are installed
-  publish = "dist"           # Output directory
-  functions = "netlify/functions"  # Serverless functions (if any)
+command = "yarn build"
+publish = "dist"
 
   [build.environment]
     VITE_API_URL = "https://www.protaxadvisors.tax"
