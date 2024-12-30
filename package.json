@@ -18,7 +18,6 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@aws-sdk/client-sesv2": "^3.716.0",
     "@netlify/functions": "^3.0.0",
     "@tanstack/react-query": "^5.62.8",
     "@tanstack/react-query-devtools": "^5.28.4",
@@ -55,6 +54,7 @@
     "@typescript-eslint/parser": "^7.18.0",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
+    "bolt-cli": "^0.1.2",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.7.0",
