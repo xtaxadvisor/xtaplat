@@ -10,12 +10,16 @@
   },
   "main": "db.js",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "test": "jest",
-    "tsc": "tsc",
-    "format": "prettier --write ."
+    "dev": "vite",                            
+    "start": "vite preview",                 
+    "build": "tsc && vite build",            
+    "test": "jest --coverage",               
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx", 
+    "format": "prettier --write .",          
+    "prepare": "husky install",              
+    "analyze": "vite build --mode analyze",  
+    "clean": "rm -rf dist && rm -rf .vite",  
+    "deploy": "npm run build && npm run start" 
   },
   "dependencies": {
     "@aws-sdk/client-sesv2": "^3.716.0",
