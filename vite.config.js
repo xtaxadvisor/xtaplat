@@ -14,6 +14,8 @@ export default defineConfig({
       "@hooks": path.resolve(__dirname, "./src/hooks"),
       "@contexts": path.resolve(__dirname, "./src/contexts"),
       "@types": path.resolve(__dirname, "./src/types"),
+      "@assets": path.resolve(__dirname, "./src/assets"), // Alias for assets
+      "@styles": path.resolve(__dirname, "./src/styles"), // Alias for styles
     },
   },
   build: {
@@ -21,19 +23,19 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          "vendor-react": ["react", "react-dom", "react-router-dom"],
-          "vendor-query": ["@tanstack/react-query"],
-          "vendor-ui": ["lucide-react"],
-          "vendor-charts": ["chart.js", "react-chartjs-2"],
+          vendor: ["react", "react-dom", "react-router-dom"], // Core React libraries
+          reactQuery: ["@tanstack/react-query"], // React Query for data fetching
+          uiLibraries: ["lucide-react"], // UI icons and components
+          chartingLibraries: ["chart.js", "react-chartjs-2"], // Charting libraries
         },
       },
     },
-    chunkSizeWarningLimit: 2000, // Avoid chunk size warnings
-    minify: "terser",
+    chunkSizeWarningLimit: 1500, // Reduced warning threshold to highlight potential issues
+    minify: "terser", // Use Terser for minification
     terserOptions: {
       compress: {
-        drop_console: true, // Remove console.logs in production
-        drop_debugger: true, // Remove debugger statements in production
+        drop_console: process.env.NODE_ENV === "production", // Remove console logs in production
+        drop_debugger: process.env.NODE_ENV === "production", // Remove debugger in production
       },
     },
   },
@@ -44,17 +46,24 @@ export default defineConfig({
       "react-router-dom",
       "@tanstack/react-query",
     ],
-    exclude: ["@tanstack/react-query-devtools"], // Exclude dev-only dependencies
+    exclude: ["@tanstack/react-query-devtools"], // Exclude development tools
   },
   server: {
-    port: 5173, // Set server to run on port 5173
+    port: 5173, // Use port 5173 for the dev server
     open: true, // Automatically open browser on server start
+    strictPort: true, // Ensure the server fails if port 5173 is unavailable
     proxy: {
-      "/.netlify/functions": {
-        target: "http://localhost:8888", // Proxy API calls during local development
-        changeOrigin: true,
-        secure: false,
+      "/api": {
+        target:
+          process.env.VITE_WEB_CONTAINER_URL ||
+          "https://xtaplat-mi0z--5173--c8c182a3.local-credentialless.webcontainer.io", // Proxy API requests to WebContainer
+        rewrite: (path) => path.replace(/^\/api/, ""), // Rewrite '/api' prefix for proper routing
+        changeOrigin: true, // Ensure the proxy modifies the origin header for compatibility
+        secure: false, // Disable SSL verification if using self-signed certificates
       },
     },
+  },
+  define: {
+    "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV), // Pass environment variables to the client
   },
 });
